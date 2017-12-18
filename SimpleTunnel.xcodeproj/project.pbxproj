@@ -12,6 +12,9 @@
 		442B69361B06721E00382B6D /* ClientAppProxyConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442B69351B06721E00382B6D /* ClientAppProxyConnection.swift */; };
 		442B69441B06730900382B6D /* ClientAppProxyConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442B69351B06721E00382B6D /* ClientAppProxyConnection.swift */; };
 		442B69451B06730900382B6D /* AppProxyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442B69331B06721300382B6D /* AppProxyProvider.swift */; };
+		690F9EC61FE5F38600F85684 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 690F9EC51FE5F38600F85684 /* NetworkExtension.framework */; };
+		690F9EC71FE5F39700F85684 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 690F9EC51FE5F38600F85684 /* NetworkExtension.framework */; };
+		695953321FE666B000915DBA /* AppProxyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695953311FE666B000915DBA /* AppProxyViewController.swift */; };
 		720FCA981B057C7900B168EB /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720FCA971B057C7900B168EB /* DataExtension.swift */; };
 		720FCAAA1B057C9400B168EB /* ControlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720FCAA91B057C9400B168EB /* ControlExtension.swift */; };
 		B01A16991A8A616000BC9EFD /* SimpleTunnelServices.h in Headers */ = {isa = PBXBuildFile; fileRef = B01A16981A8A616000BC9EFD /* SimpleTunnelServices.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -41,8 +44,6 @@
 		C46318B31AC35C3300849278 /* StringListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46318B21AC35C3300849278 /* StringListController.swift */; };
 		C46318B51AC35F0600849278 /* EnumPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46318B41AC35F0600849278 /* EnumPickerController.swift */; };
 		C46451541AC3199300617E08 /* OnDemandRuleListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46451531AC3199300617E08 /* OnDemandRuleListController.swift */; };
-		C46909421B0E9AEA00F8FCE0 /* FilterDataProvider.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 720FCA951B057C7900B168EB /* FilterDataProvider.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		C46909431B0E9AEE00F8FCE0 /* FilterControlProvider.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 720FCAA71B057C9400B168EB /* FilterControlProvider.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C4751DE01ACB509A00C116E5 /* ProxyServerAddEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4751DDF1ACB509A00C116E5 /* ProxyServerAddEditController.swift */; };
 		C490D9011AC1AA8700FB67E9 /* AddEditConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C490D9001AC1AA8700FB67E9 /* AddEditConfiguration.swift */; };
 		C497D4211B42185000EDD37E /* FilterUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C497D4201B42185000EDD37E /* FilterUtilities.swift */; };
@@ -57,24 +58,9 @@
 		C4E003AF1B1A9E45001A01C0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B07CCB431A8940E600A4F1E5 /* Images.xcassets */; };
 		C4E003B01B1A9E45001A01C0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B07CCB451A8940E600A4F1E5 /* LaunchScreen.xib */; };
 		C4F7B44B1B3B5DD40033A7E4 /* AppProxyProvider.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 442B69421B06724900382B6D /* AppProxyProvider.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		C4F7B44E1B3B5F400033A7E4 /* PacketTunnel.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B07CCB6D1A89414500A4F1E5 /* PacketTunnel.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C469093E1B0E9ADF00F8FCE0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B07CCB2F1A8940E600A4F1E5 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 720FCA941B057C7900B168EB;
-			remoteInfo = FilterDataProvider;
-		};
-		C46909401B0E9AE200F8FCE0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B07CCB2F1A8940E600A4F1E5 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 720FCAA61B057C9400B168EB;
-			remoteInfo = FilterControlProvider;
-		};
 		C48A18BF1B103A5800453F3E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B07CCB2F1A8940E600A4F1E5 /* Project object */;
@@ -117,13 +103,6 @@
 			remoteGlobalIDString = 442B69371B06724900382B6D;
 			remoteInfo = AppProxy;
 		};
-		C4F7B44C1B3B5F3A0033A7E4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B07CCB2F1A8940E600A4F1E5 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B07CCB6C1A89414500A4F1E5;
-			remoteInfo = PacketTunnel;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -144,10 +123,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				C4F7B44E1B3B5F400033A7E4 /* PacketTunnel.appex in Embed App Extensions */,
 				C4F7B44B1B3B5DD40033A7E4 /* AppProxyProvider.appex in Embed App Extensions */,
-				C46909431B0E9AEE00F8FCE0 /* FilterControlProvider.appex in Embed App Extensions */,
-				C46909421B0E9AEA00F8FCE0 /* FilterDataProvider.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -170,6 +146,8 @@
 		442B69331B06721300382B6D /* AppProxyProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppProxyProvider.swift; path = AppProxy/AppProxyProvider.swift; sourceTree = "<group>"; };
 		442B69351B06721E00382B6D /* ClientAppProxyConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientAppProxyConnection.swift; path = AppProxy/ClientAppProxyConnection.swift; sourceTree = "<group>"; };
 		442B69421B06724900382B6D /* AppProxyProvider.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AppProxyProvider.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		690F9EC51FE5F38600F85684 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
+		695953311FE666B000915DBA /* AppProxyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppProxyViewController.swift; sourceTree = "<group>"; };
 		720FCA951B057C7900B168EB /* FilterDataProvider.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FilterDataProvider.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		720FCA971B057C7900B168EB /* DataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtension.swift; sourceTree = "<group>"; };
 		720FCA9C1B057C7900B168EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -234,6 +212,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				690F9EC61FE5F38600F85684 /* NetworkExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +241,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				690F9EC71FE5F39700F85684 /* NetworkExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +279,14 @@
 				442B692D1B0671DC00382B6D /* AppProxy.entitlements */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		690F9EC41FE5F38600F85684 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				690F9EC51FE5F38600F85684 /* NetworkExtension.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		720FCA961B057C7900B168EB /* FilterDataProvider */ = {
@@ -355,6 +343,7 @@
 				720FCA961B057C7900B168EB /* FilterDataProvider */,
 				720FCAA81B057C9400B168EB /* FilterControlProvider */,
 				B07CCB381A8940E600A4F1E5 /* Products */,
+				690F9EC41FE5F38600F85684 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -397,6 +386,7 @@
 				C44B374A1B2725C700B3C3E0 /* SwitchCell.swift */,
 				C44B38561B27AD3100B3C3E0 /* TextFieldCell.swift */,
 				C44B385A1B27CFDB00B3C3E0 /* ConfigurationParametersViewController.swift */,
+				695953311FE666B000915DBA /* AppProxyViewController.swift */,
 			);
 			path = SimpleTunnel;
 			sourceTree = "<group>";
@@ -547,11 +537,8 @@
 			buildRules = (
 			);
 			dependencies = (
-				C4F7B44D1B3B5F3A0033A7E4 /* PBXTargetDependency */,
 				C4F7B44A1B3B5DC60033A7E4 /* PBXTargetDependency */,
 				C4CEAAFD1B1A4728009C8CC0 /* PBXTargetDependency */,
-				C46909411B0E9AE200F8FCE0 /* PBXTargetDependency */,
-				C469093F1B0E9ADF00F8FCE0 /* PBXTargetDependency */,
 			);
 			name = SimpleTunnel;
 			productName = SimpleTunnel;
@@ -604,8 +591,14 @@
 				ORGANIZATIONNAME = "Apple Inc.";
 				TargetAttributes = {
 					442B69371B06724900382B6D = {
-            CreatedOnToolsVersion = 7.0;
+						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 745WQDK4L7;
 						LastSwiftMigration = 0800;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 0;
+							};
+						};
 					};
 					720FCA941B057C7900B168EB = {
 						CreatedOnToolsVersion = 7.0;
@@ -621,10 +614,17 @@
 					};
 					B07CCB361A8940E600A4F1E5 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 745WQDK4L7;
 						LastSwiftMigration = 0800;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 0;
+							};
+						};
 					};
 					B07CCB6C1A89414500A4F1E5 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 745WQDK4L7;
 						LastSwiftMigration = 0800;
 					};
 					B0993D3A1A8A6DBC00510E18 = {
@@ -763,6 +763,7 @@
 				442B69341B06721300382B6D /* AppProxyProvider.swift in Sources */,
 				C46318B11AC3598600849278 /* OnDemandRuleAddEditController.swift in Sources */,
 				C4C273931AD5C50000214C25 /* ContentFilterController.swift in Sources */,
+				695953321FE666B000915DBA /* AppProxyViewController.swift in Sources */,
 				C418873C1AC60FE8004F638A /* ConnectionRuleListController.swift in Sources */,
 				C418873A1AC60F7E004F638A /* ConnectionRuleAddEditController.swift in Sources */,
 				442B69361B06721E00382B6D /* ClientAppProxyConnection.swift in Sources */,
@@ -804,16 +805,6 @@
 			target = B01A16931A8A615F00BC9EFD /* SimpleTunnelServices */;
 			targetProxy = C48A18BF1B103A5800453F3E /* PBXContainerItemProxy */;
 		};
-		C469093F1B0E9ADF00F8FCE0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 720FCA941B057C7900B168EB /* FilterDataProvider */;
-			targetProxy = C469093E1B0E9ADF00F8FCE0 /* PBXContainerItemProxy */;
-		};
-		C46909411B0E9AE200F8FCE0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 720FCAA61B057C9400B168EB /* FilterControlProvider */;
-			targetProxy = C46909401B0E9AE200F8FCE0 /* PBXContainerItemProxy */;
-		};
 		C4CEAAF91B1A45A6009C8CC0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B01A16931A8A615F00BC9EFD /* SimpleTunnelServices */;
@@ -838,11 +829,6 @@
 			isa = PBXTargetDependency;
 			target = 442B69371B06724900382B6D /* AppProxy */;
 			targetProxy = C4F7B4491B3B5DC60033A7E4 /* PBXContainerItemProxy */;
-		};
-		C4F7B44D1B3B5F3A0033A7E4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B07CCB6C1A89414500A4F1E5 /* PacketTunnel */;
-			targetProxy = C4F7B44C1B3B5F3A0033A7E4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -871,9 +857,10 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = AppProxy/AppProxy.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 745WQDK4L7;
 				INFOPLIST_FILE = AppProxy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SimpleTunnel.AppProxy";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.SimpleTunnel.AppProxy;
 				PRODUCT_MODULE_NAME = AppProxy;
 				PRODUCT_NAME = AppProxyProvider;
 				SKIP_INSTALL = YES;
@@ -886,9 +873,10 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = AppProxy/AppProxy.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 745WQDK4L7;
 				INFOPLIST_FILE = AppProxy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SimpleTunnel.AppProxy";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.SimpleTunnel.AppProxy;
 				PRODUCT_MODULE_NAME = AppProxy;
 				PRODUCT_NAME = AppProxyProvider;
 				SKIP_INSTALL = YES;
@@ -906,7 +894,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = FilterDataProvider/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SimpleTunnel.FilterDataProvider";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.SimpleTunnel.FilterDataProvider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -922,7 +910,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = FilterDataProvider/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SimpleTunnel.FilterDataProvider";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.SimpleTunnel.FilterDataProvider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -939,7 +927,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = FilterControlProvider/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SimpleTunnel.FilterControlProvider";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.SimpleTunnel.FilterControlProvider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -955,7 +943,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = FilterControlProvider/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SimpleTunnel.FilterControlProvider";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.SimpleTunnel.FilterControlProvider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -975,7 +963,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = "-fapplication-extension";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SimpleTunnelServices";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.SimpleTunnelServices;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
@@ -998,7 +986,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = "-fapplication-extension";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SimpleTunnelServices";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.SimpleTunnelServices;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
@@ -1099,6 +1087,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = SimpleTunnel/SimpleTunnel.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 745WQDK4L7;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -1107,7 +1096,7 @@
 				);
 				INFOPLIST_FILE = SimpleTunnel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SimpleTunnel";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.SimpleTunnel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1123,11 +1112,12 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = SimpleTunnel/SimpleTunnel.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 745WQDK4L7;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = "VPNTYPE=\\\"$(PLUGIN_BUNDLE_ID)\\\"";
 				INFOPLIST_FILE = SimpleTunnel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SimpleTunnel";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.SimpleTunnel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_VERSION = 3.0;
@@ -1140,9 +1130,10 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = PacketTunnel/PacketTunnel.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 745WQDK4L7;
 				INFOPLIST_FILE = PacketTunnel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SimpleTunnel.PacketTunnel";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.SimpleTunnel.PacketTunnel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -1154,9 +1145,10 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = PacketTunnel/PacketTunnel.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 745WQDK4L7;
 				INFOPLIST_FILE = PacketTunnel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SimpleTunnel.PacketTunnel";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.SimpleTunnel.PacketTunnel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
