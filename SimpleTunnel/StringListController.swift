@@ -52,7 +52,7 @@ class StringListController: ListViewController {
 			self.listInsertItemAtIndex(self.targetStrings.count - 1)
 			self.addStringCell.textField.text = ""
 			self.stringsChangedHandler(self.targetStrings)
-		}
+		} as (() -> Void)
 
 		// Set addStringCell as a custom "add a new item" cell.
 		addCell = addStringCell

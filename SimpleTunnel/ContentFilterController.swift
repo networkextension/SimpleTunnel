@@ -60,7 +60,7 @@ class ContentFilterController: UITableViewController {
 				self.rulesServerCell.textField.text = NEFilterManager.shared().providerConfiguration?.serverAddress
 				FilterUtilities.defaults?.setValue(NEFilterManager.shared().providerConfiguration?.serverAddress, forKey: "serverAddress")
 			}
-		}
+		} as (() -> Void)
 
 		rulesServerCell.valueChanged = {
 			guard let serverIPAddress = self.rulesServerCell.textField.text , !serverIPAddress.isEmpty else { return }
@@ -74,7 +74,7 @@ class ContentFilterController: UITableViewController {
 
 				FilterUtilities.defaults?.setValue(serverIPAddress, forKey: "serverAddress")
 			}
-		}
+		} as (() -> Void)
 	}
 
 	/// Handle the event where the view is loaded into memory.

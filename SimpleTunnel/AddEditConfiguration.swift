@@ -68,20 +68,20 @@ class AddEditConfiguration: ConfigurationParametersViewController {
 		proxiesCell.dependentCells = [ proxySettingsCell ]
 		proxiesCell.getIndexPath = {
 			return self.getIndexPathOfCell(self.proxiesCell)
-		}
+		} as (() -> IndexPath?)
 		proxiesCell.valueChanged = {
 			self.updateCellsWithDependentsOfCell(self.proxiesCell)
-		}
+		} as (() -> Void)
 
 		// The switch in onDemandCell controls the display of onDemandRulesCell
 		onDemandCell.dependentCells = [ onDemandRulesCell ]
 		onDemandCell.getIndexPath = {
 			return self.getIndexPathOfCell(self.onDemandCell)
-		}
+		} as (() -> IndexPath?)
 		onDemandCell.valueChanged = {
 			self.updateCellsWithDependentsOfCell(self.onDemandCell)
 			self.targetManager.isOnDemandEnabled = self.onDemandCell.isOn
-		}
+		} as (() -> Void)
 
 		disconnectOnSleepCell.valueChanged = {
 			self.targetManager.protocolConfiguration?.disconnectOnSleep = self.disconnectOnSleepCell.isOn
@@ -89,7 +89,7 @@ class AddEditConfiguration: ConfigurationParametersViewController {
 
 		nameCell.valueChanged = {
 			self.targetManager.localizedDescription = self.nameCell.textField.text
-		}
+		} as (() -> Void)
 
 		serverAddressCell.valueChanged = {
 			self.targetManager.protocolConfiguration?.serverAddress = self.serverAddressCell.textField.text

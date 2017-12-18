@@ -50,11 +50,11 @@ class ProxyServerAddEditController: ConfigurationParametersViewController {
 		authenticationSwitchCell.dependentCells = [ usernameCell, passwordCell ]
 		authenticationSwitchCell.getIndexPath = {
 			return self.getIndexPathOfCell(self.authenticationSwitchCell)
-		}
+		} as (() -> IndexPath?)
 		authenticationSwitchCell.valueChanged = {
 			self.updateCellsWithDependentsOfCell(self.authenticationSwitchCell)
 			self.targetServer.authenticationRequired = self.authenticationSwitchCell.isOn
-		}
+		} as (() -> Void)
 	}
 
 	/// Handle the event when the view is being displayed.

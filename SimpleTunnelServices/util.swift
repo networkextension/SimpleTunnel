@@ -33,7 +33,7 @@ class SavedData {
 
 	/// Add a data blob and offset to the end of the list.
 	func append(_ data: Data, offset: Int) {
-		chain.append(data: data, offset: offset)
+		chain.append((data: data, offset: offset))
 	}
 
 	/// Write as much of the data in the list as possible to a stream

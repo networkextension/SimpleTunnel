@@ -91,7 +91,7 @@ class OnDemandRuleAddEditController: ConfigurationParametersViewController {
 			else {
 				self.targetRule.probeURL = nil
 			}
-		}
+		} as (() -> Void)
 	}
 
 	/// Handle the event when the view is being displayed.

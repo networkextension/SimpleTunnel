@@ -17,7 +17,7 @@ class TextFieldCell : UITableViewCell, UITextFieldDelegate {
 	@IBOutlet weak var textField: UITextField!
 
 	/// The block to call when the value of the text field changes.
-	var valueChanged: ((Void) -> Void)?
+	var valueChanged: (() -> Void)?
 
 	// MARK: UITextFieldDelegate
 

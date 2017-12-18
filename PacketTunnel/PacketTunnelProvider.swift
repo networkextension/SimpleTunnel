@@ -24,7 +24,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider, TunnelDelegate, ClientTunnel
 	var pendingStartCompletion: ((Error?) -> Void)?
 
 	/// The completion handler to call when the tunnel is fully disconnected.
-	var pendingStopCompletion: ((Void) -> Void)?
+	var pendingStopCompletion: (() -> Void)?
 
 	// MARK: NEPacketTunnelProvider
 
@@ -145,7 +145,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider, TunnelDelegate, ClientTunnel
 		let newSettings = NEPacketTunnelNetworkSettings(tunnelRemoteAddress: tunnelAddress)
 		var fullTunnel = true
 
-		newSettings.iPv4Settings = NEIPv4Settings(addresses: [address], subnetMasks: [netmask])
+		newSettings.ipv4Settings = NEIPv4Settings(addresses: [address], subnetMasks: [netmask])
 
 		if let routes = getValueFromPlist(configuration, keyArray: [.IPv4, .Routes]) as? [[String: AnyObject]] {
 			var includedRoutes = [NEIPv4Route]()
@@ -156,12 +156,12 @@ class PacketTunnelProvider: NEPacketTunnelProvider, TunnelDelegate, ClientTunnel
 					includedRoutes.append(NEIPv4Route(destinationAddress: netAddress, subnetMask: netMask))
 				}
 			}
-			newSettings.iPv4Settings?.includedRoutes = includedRoutes
+			newSettings.ipv4Settings?.includedRoutes = includedRoutes
 			fullTunnel = false
 		}
 		else {
 			// No routes specified, use the default route.
-			newSettings.iPv4Settings?.includedRoutes = [NEIPv4Route.default()]
+			newSettings.ipv4Settings?.includedRoutes = [NEIPv4Route.default()]
 		}
 
 		if let DNSDictionary = configuration[SettingsKey.DNS.rawValue as NSString] as? [String: AnyObject],

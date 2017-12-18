@@ -65,11 +65,11 @@ class ProxySettingsController: ConfigurationParametersViewController {
 		pacSwitchCell.dependentCells = [ pacURLCell, pacScriptCell ]
 		pacSwitchCell.getIndexPath = {
 			return self.getIndexPathOfCell(self.pacSwitchCell)
-		}
+		} as (() -> IndexPath?)
 		pacSwitchCell.valueChanged = {
 			self.updateCellsWithDependentsOfCell(self.pacSwitchCell)
 			self.targetConfiguration.proxySettings?.autoProxyConfigurationEnabled = self.pacSwitchCell.isOn
-		}
+		} as (() -> Void)
 
 		pacURLCell.valueChanged = {
 			if let enteredText = self.pacURLCell.textField.text {
@@ -78,25 +78,25 @@ class ProxySettingsController: ConfigurationParametersViewController {
 			else {
 				self.targetConfiguration.proxySettings?.proxyAutoConfigurationURL = nil
 			}
-		}
+		} as (() -> Void)
 
 		HTTPSwitchCell.dependentCells = [ HTTPCell ]
 		HTTPSwitchCell.getIndexPath = {
 			return self.getIndexPathOfCell(self.HTTPSwitchCell)
-		}
+		} as (() -> IndexPath?)
 		HTTPSwitchCell.valueChanged = {
 			self.updateCellsWithDependentsOfCell(self.HTTPSwitchCell)
 			self.targetConfiguration.proxySettings?.httpEnabled = self.HTTPSwitchCell.isOn
-		}
+		} as (() -> Void)
 
 		HTTPSSwitchCell.dependentCells = [ HTTPSCell ]
 		HTTPSSwitchCell.getIndexPath = {
 			return self.getIndexPathOfCell(self.HTTPSSwitchCell)
-		}
+		} as (() -> IndexPath?)
 		HTTPSSwitchCell.valueChanged = {
 			self.updateCellsWithDependentsOfCell(self.HTTPSSwitchCell)
 			self.targetConfiguration.proxySettings?.httpsEnabled = self.HTTPSSwitchCell.isOn
-		}
+		} as (() -> Void)
 
 		excludeSimpleCell.valueChanged = {
 			self.targetConfiguration.proxySettings?.excludeSimpleHostnames = self.excludeSimpleCell.isOn

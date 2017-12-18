@@ -23,10 +23,10 @@ class SwitchCell: UITableViewCell {
 	var dependentCells = [UITableViewCell]()
 
 	/// A block to call to get the index path of this cell int its containing table.
-	var getIndexPath: ((Void) -> IndexPath?)?
+	var getIndexPath: (() -> IndexPath?)?
 
 	/// A block to call when the value of the switch changes.
-	var valueChanged: ((Void) -> Void)?
+	var valueChanged: (() -> Void)?
 
 	/// A boolean that toggles the switch.
 	var isOn: Bool {

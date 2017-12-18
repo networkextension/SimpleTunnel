@@ -61,6 +61,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		695953331FE748F700915DBA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B07CCB2F1A8940E600A4F1E5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B07CCB6C1A89414500A4F1E5;
+			remoteInfo = PacketTunnel;
+		};
+		695953351FE748FC00915DBA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B07CCB2F1A8940E600A4F1E5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 720FCA941B057C7900B168EB;
+			remoteInfo = FilterDataProvider;
+		};
+		695953371FE7490000915DBA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B07CCB2F1A8940E600A4F1E5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 720FCAA61B057C9400B168EB;
+			remoteInfo = FilterControlProvider;
+		};
 		C48A18BF1B103A5800453F3E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B07CCB2F1A8940E600A4F1E5 /* Project object */;
@@ -537,6 +558,9 @@
 			buildRules = (
 			);
 			dependencies = (
+				695953381FE7490000915DBA /* PBXTargetDependency */,
+				695953361FE748FC00915DBA /* PBXTargetDependency */,
+				695953341FE748F700915DBA /* PBXTargetDependency */,
 				C4F7B44A1B3B5DC60033A7E4 /* PBXTargetDependency */,
 				C4CEAAFD1B1A4728009C8CC0 /* PBXTargetDependency */,
 			);
@@ -593,7 +617,7 @@
 					442B69371B06724900382B6D = {
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = 745WQDK4L7;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0920;
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 0;
@@ -602,20 +626,20 @@
 					};
 					720FCA941B057C7900B168EB = {
 						CreatedOnToolsVersion = 7.0;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0920;
 					};
 					720FCAA61B057C9400B168EB = {
 						CreatedOnToolsVersion = 7.0;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0920;
 					};
 					B01A16931A8A615F00BC9EFD = {
 						CreatedOnToolsVersion = 7.0;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0920;
 					};
 					B07CCB361A8940E600A4F1E5 = {
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = 745WQDK4L7;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0920;
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 0;
@@ -625,7 +649,7 @@
 					B07CCB6C1A89414500A4F1E5 = {
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = 745WQDK4L7;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0920;
 					};
 					B0993D3A1A8A6DBC00510E18 = {
 						CreatedOnToolsVersion = 7.0;
@@ -805,6 +829,21 @@
 			target = B01A16931A8A615F00BC9EFD /* SimpleTunnelServices */;
 			targetProxy = C48A18BF1B103A5800453F3E /* PBXContainerItemProxy */;
 		};
+		695953341FE748F700915DBA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B07CCB6C1A89414500A4F1E5 /* PacketTunnel */;
+			targetProxy = 695953331FE748F700915DBA /* PBXContainerItemProxy */;
+		};
+		695953361FE748FC00915DBA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 720FCA941B057C7900B168EB /* FilterDataProvider */;
+			targetProxy = 695953351FE748FC00915DBA /* PBXContainerItemProxy */;
+		};
+		695953381FE7490000915DBA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 720FCAA61B057C9400B168EB /* FilterControlProvider */;
+			targetProxy = 695953371FE7490000915DBA /* PBXContainerItemProxy */;
+		};
 		C4CEAAF91B1A45A6009C8CC0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B01A16931A8A615F00BC9EFD /* SimpleTunnelServices */;
@@ -864,7 +903,8 @@
 				PRODUCT_MODULE_NAME = AppProxy;
 				PRODUCT_NAME = AppProxyProvider;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -880,7 +920,8 @@
 				PRODUCT_MODULE_NAME = AppProxy;
 				PRODUCT_NAME = AppProxyProvider;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -897,7 +938,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.SimpleTunnel.FilterDataProvider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -913,7 +955,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.SimpleTunnel.FilterDataProvider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -930,7 +973,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.SimpleTunnel.FilterControlProvider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -946,7 +990,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.SimpleTunnel.FilterControlProvider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -967,7 +1012,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -990,7 +1036,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1100,7 +1147,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				VALID_ARCHS = "arm64 armv4t armv5 armv6 armv6m armv7 armv7em armv7f armv7m armv7s xscale x86_64";
 			};
 			name = Debug;
@@ -1120,7 +1168,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.SimpleTunnel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				VALID_ARCHS = "arm64 armv4t armv5 armv6 armv6m armv7 armv7em armv7f armv7m armv7s xscale x86_64";
 			};
 			name = Release;
@@ -1136,7 +1185,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.SimpleTunnel.PacketTunnel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -1151,7 +1201,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.SimpleTunnel.PacketTunnel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
