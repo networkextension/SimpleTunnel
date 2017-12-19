@@ -18,7 +18,7 @@ class AppProxyProvider: NEAppProxyProvider, TunnelDelegate {
 	var tunnel: ClientTunnel?
 
 	/// The completion handler to call when the tunnel is fully established.
-	var pendingStartCompletion: ((NSError?) -> Void)?
+	var pendingStartCompletion: ((Error?) -> Void)?
 
 	/// The completion handler to call when the tunnel is fully disconnected.
     var pendingStopCompletion: (() -> Void)?
@@ -37,7 +37,7 @@ class AppProxyProvider: NEAppProxyProvider, TunnelDelegate {
 		newTunnel.delegate = self
 
 		if let error = newTunnel.startTunnel(self) {
-			completionHandler(error as NSError)
+			completionHandler(error)
 			return
 		}
 

@@ -23,14 +23,14 @@ class AddressPool {
 	var inUseMask: [Bool]
 
 	/// A dispatch queue for serializing access to the pool.
-	let queue: dispatch_queue_t
+	let queue: DispatchQueue
 
 	// MARK: Initializers
 	
 	init(startAddress: String, endAddress: String) {
 		baseAddress = SocketAddress()
-		inUseMask = [Bool](count: 0, repeatedValue: false)
-		queue = dispatch_queue_create("AddressPoolQueue", nil)
+        inUseMask = [Bool](repeating: false, count: 0)
+        queue = DispatchQueue(label: "AddressPoolQueue")
 
 		let start = SocketAddress()
 		let end = SocketAddress()
@@ -59,18 +59,18 @@ class AddressPool {
 
 		baseAddress.sin = start.sin
 		size = UInt64(difference)
-		inUseMask = [Bool](count: Int(size), repeatedValue: false)
+        inUseMask = [Bool](repeating: false, count: Int(size))
 	}
 
 	/// Allocate an address from the pool.
 	func allocateAddress() -> String? {
 		var result: String?
 
-		dispatch_sync(queue) {
+        queue.sync() {
 			let address = SocketAddress(otherAddress: self.baseAddress)
 
 			// Look for an address that is not currently allocated
-			for (index, inUse) in self.inUseMask.enumerate() {
+            for (index, inUse) in self.inUseMask.enumerated() {
 				if !inUse {
 					address.increment(UInt32(index))
 					self.inUseMask[index] = true
@@ -80,13 +80,13 @@ class AddressPool {
 			}
 		}
 
-		simpleTunnelLog("Allocated address \(result)")
+        simpleTunnelLog("Allocated address \(String(describing: result))")
 		return result
 	}
 
 	/// Deallocate an address in the pool.
 	func deallocateAddress(addrString: String) {
-		dispatch_sync(queue) {
+        queue.sync() {
 			let address = SocketAddress()
 
 			guard address.setFromString(addrString) else { return }

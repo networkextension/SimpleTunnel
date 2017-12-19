@@ -153,7 +153,7 @@ open class Tunnel: NSObject {
     }
 
 	/// Serialize a message
-	func serializeMessage(_ messageProperties: [String: AnyObject]) -> Data? {
+	func serializeMessage(_ messageProperties: [String: Any]) -> Data? {
 		var messageData: NSMutableData?
 		do {
 			/*
@@ -178,7 +178,7 @@ open class Tunnel: NSObject {
 	}
 
 	/// Send a message on the tunnel connection.
-	func sendMessage(_ messageProperties: [String: AnyObject]) -> Bool {
+	func sendMessage(_ messageProperties: [String: Any]) -> Bool {
 		var written: Int = 0
 
         guard let messageData = serializeMessage(messageProperties) else {
@@ -213,7 +213,7 @@ open class Tunnel: NSObject {
 				TunnelMessageKey.Data.rawValue : data as AnyObject
 			])
 
-		if !sendMessage(properties) {
+        if !sendMessage(properties as [String : AnyObject]) {
 			simpleTunnelLog("Failed to send a data message for connection \(connectionIdentifier)")
 		}
 	}
@@ -226,7 +226,7 @@ open class Tunnel: NSObject {
 				TunnelMessageKey.Port.rawValue: port as AnyObject
 			])
 
-		if !sendMessage(properties) {
+        if !sendMessage(properties as [String : AnyObject]) {
 			simpleTunnelLog("Failed to send a data message for connection \(connectionIdentifier)")
 		}
 	}
@@ -253,7 +253,7 @@ open class Tunnel: NSObject {
 				TunnelMessageKey.CloseDirection.rawValue: type.rawValue as AnyObject
 			])
 			
-		if !sendMessage(properties) {
+        if !sendMessage(properties as [String : AnyObject]) {
 			simpleTunnelLog("Failed to send a close message for connection \(connectionIdentifier)")
 		}
 	}
@@ -265,7 +265,7 @@ open class Tunnel: NSObject {
 				TunnelMessageKey.Protocols.rawValue: protocols as AnyObject
 			])
 
-		if !sendMessage(properties) {
+        if !sendMessage(properties as [String : AnyObject]) {
 			simpleTunnelLog("Failed to send a packet message")
 		}
 	}

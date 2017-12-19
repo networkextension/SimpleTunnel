@@ -177,7 +177,7 @@ class ClientAppProxyTCPConnection : ClientAppProxyConnection {
 		// Read another chunk of data from the source application.
 		TCPFlow.readData { data, readError in
 			guard let readData = data , readError == nil else {
-				simpleTunnelLog("Failed to read data from the TCP flow. error = \(readError)")
+				simpleTunnelLog("Failed to read data from the TCP flow. error = \(readError?.localizedDescription)")
 				self.handleErrorCondition(.peerReset)
 				return
 			}
@@ -197,7 +197,7 @@ class ClientAppProxyTCPConnection : ClientAppProxyConnection {
 	override func sendData(_ data: Data) {
 		TCPFlow.write(data) { error in
 			if let writeError = error {
-				simpleTunnelLog("Failed to write data to the TCP flow. error = \(writeError)")
+				simpleTunnelLog("Failed to write data to the TCP flow. error = \(writeError.localizedDescription)")
 				self.tunnel?.sendCloseType(.read, forConnection: self.identifier)
 				self.TCPFlow.closeWriteWithError(nil)
 			}

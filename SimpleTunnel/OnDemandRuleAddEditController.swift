@@ -142,9 +142,10 @@ class OnDemandRuleAddEditController: ConfigurationParametersViewController {
 					stringValues = enumValues.flatMap { $0.description },
 					currentSelection = enumValues.index { $0 == targetRule.interfaceTypeMatch }
 
-				enumController.setValues(stringValues, title: "Interface Type", currentSelection: currentSelection) { newRow in
-					self.targetRule.interfaceTypeMatch = enumValues[newRow]
-				}
+            //MARK: --fixme
+//                enumController.setValues(stringValues, title: "Interface Type", currentSelection: currentSelection) { newRow in
+//                    self.targetRule.interfaceTypeMatch = enumValues[newRow]
+//                }
 
 			case "edit-dns-servers":
 				// The user tapped on the DNS Servers cell.
@@ -170,9 +171,10 @@ class OnDemandRuleAddEditController: ConfigurationParametersViewController {
 					stringValues = enumValues.flatMap { $0.description },
 					currentSelection = enumValues.index { $0 == targetRule.action }
 
-				enumController.setValues(stringValues, title: "Action", currentSelection: currentSelection) { newRow in
-					self.changeTargetRuleType(enumValues[newRow])
-				}
+            //MARK: --fixme
+//                enumController.setValues(stringValues, title: "Action", currentSelection: currentSelection) { newRow in
+//                    self.changeTargetRuleType(enumValues[newRow])
+//                }
 
 			case "edit-connection-rules":
 				// The user tapped on the Connection Rules cell.

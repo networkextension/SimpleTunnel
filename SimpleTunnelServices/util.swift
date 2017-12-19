@@ -191,13 +191,13 @@ func writeData(_ data: Data, toStream stream: OutputStream, startingAtOffset off
 }
 
 /// Create a SimpleTunnel protocol message dictionary.
-public func createMessagePropertiesForConnection(_ connectionIdentifier: Int, commandType: TunnelCommand, extraProperties: [String: AnyObject] = [:]) -> [String: AnyObject] {
+public func createMessagePropertiesForConnection(_ connectionIdentifier: Int, commandType: TunnelCommand, extraProperties: [String: Any] = [:]) -> [String: Any] {
 	// Start out with the "extra properties" that the caller specified.
 	var properties = extraProperties
 
 	// Add in the standard properties common to all messages.
-	properties[TunnelMessageKey.Identifier.rawValue] = connectionIdentifier as AnyObject?
-	properties[TunnelMessageKey.Command.rawValue] = commandType.rawValue as AnyObject?
+	properties[TunnelMessageKey.Identifier.rawValue] = connectionIdentifier
+	properties[TunnelMessageKey.Command.rawValue] = commandType.rawValue
 	
 	return properties
 }

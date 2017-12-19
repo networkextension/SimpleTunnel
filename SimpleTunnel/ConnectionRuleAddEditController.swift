@@ -99,20 +99,21 @@ class ConnectionRuleAddEditController: ConfigurationParametersViewController {
 				// The user tapped on the Action table cell.
 				guard let enumController = segue.destination as? EnumPickerController else { break }
 
-				let enumValues: [NEEvaluateConnectionRuleAction] = [ .connectIfNeeded, .neverConnect, ],
-					stringValues = enumValues.flatMap { $0.description },
-					currentSelection = enumValues.index { $0 == targetRule.action }
-
-				enumController.setValues(stringValues, title: "Action", currentSelection: currentSelection) { newRow in
-					let newAction = enumValues[newRow]
-					guard self.targetRule.action != newAction else { return }
-
-					let newRule = NEEvaluateConnectionRule(matchDomains: self.targetRule.matchDomains, andAction: newAction)
-					newRule.useDNSServers = self.targetRule.useDNSServers
-					newRule.probeURL = self.targetRule.probeURL
-
-					self.targetRule = newRule
-				}
+            //MARK: --fixme
+//                let enumValues: [NEEvaluateConnectionRuleAction] = [ .connectIfNeeded, .neverConnect, ],
+//                    stringValues = enumValues.flatMap { $0.description },
+//                    currentSelection = enumValues.index { $0 == targetRule.action }
+//
+//                enumController.setValues(stringValues, title: "Action", currentSelection: currentSelection) { newRow in
+//                    let newAction = enumValues[newRow]
+//                    guard self.targetRule.action != newAction else { return }
+//
+//                    let newRule = NEEvaluateConnectionRule(matchDomains: self.targetRule.matchDomains, andAction: newAction)
+//                    newRule.useDNSServers = self.targetRule.useDNSServers
+//                    newRule.probeURL = self.targetRule.probeURL
+//
+//                    self.targetRule = newRule
+//                }
 
 			case "edit-connection-rule-match-domains":
 				// The user tapped on the Match Domains table cell.
