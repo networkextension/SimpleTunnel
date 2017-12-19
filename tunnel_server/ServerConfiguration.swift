@@ -90,15 +90,19 @@ class ServerConfiguration {
 
 		// The default resolver configuration can be obtained from State:/Network/Global/DNS in the dynamic store.
 
-        //MARK: fixme
-//        if let globalDNS = SCDynamicStoreCopyValue(nil, globalDNSKey) as? [NSObject: AnyObject],
-//            let servers = globalDNS[kSCPropNetDNSServerAddresses as String] as? [String]
-//        {
-//            if let searchDomains = globalDNS[kSCPropNetDNSSearchDomains as String] as? [String] {
-//                DNSSearchDomains = searchDomains
-//            }
-//            DNSServers = servers
-//        }
+      
+        if let x = SCDynamicStoreCopyValue(nil, globalDNSKey) as? [NSObject:AnyObject] {
+            
+            
+            if  let searchDomains = x[kSCPropNetDNSSearchDomains] {
+                //as! [String]
+                DNSSearchDomains = searchDomains as! [String]
+            }
+            
+            DNSServers = x[kSCPropNetDNSServerAddresses] as! [String]
+        }
+
+        simpleTunnelLog("dns:\(DNSServers) \(DNSSearchDomains)")
 
 		return (DNSServers, DNSSearchDomains)
 	}
