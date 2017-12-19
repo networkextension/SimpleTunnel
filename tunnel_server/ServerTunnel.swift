@@ -56,7 +56,7 @@ class ServerTunnel: Tunnel, TunnelDelegate, StreamDelegate {
 		simpleTunnelLog("Starting network service on port \(port)")
 
 		service.delegate = ServerTunnel.serviceDelegate
-        service.publish(options: NSNetService.Options.listenForConnections)
+        service.publish(options: NetService.Options.listenForConnections)
         service.schedule(in: .main, forMode: RunLoopMode.defaultRunLoopMode)
 
 		return service
