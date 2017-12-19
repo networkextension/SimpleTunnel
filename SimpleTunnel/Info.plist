@@ -20,8 +20,13 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
-	<key>LSRequiresIPhoneOS</key>
-	<true/>
+	<key>NETestAppMapping</key>
+	<dict>
+		<key>3EC4174F-E479-11E7-85A7-A45E60E37709</key>
+		<array>
+			<string>com.yarshure.Demo</string>
+		</array>
+	</dict>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

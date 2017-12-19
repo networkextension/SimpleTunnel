@@ -45,6 +45,9 @@ class AppProxyProvider: NEAppProxyProvider, TunnelDelegate {
 		tunnel = newTunnel
 	}
 
+    override func handleAppMessage(_ messageData: Data, completionHandler: ((Data?) -> Void)? = nil) {
+        completionHandler!(messageData)
+    }
 	/// Begin the process of stopping the tunnel.
 	override func stopProxy(with reason: NEProviderStopReason, completionHandler: @escaping () -> Void) {
 

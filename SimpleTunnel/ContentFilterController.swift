@@ -98,6 +98,7 @@ class ContentFilterController: UITableViewController {
 
 	/// Handle changes to the rules
 	override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        //bughere
 		if context == &rulesContext && keyPath == "rules" {
 			reloadRules()
 		} else {

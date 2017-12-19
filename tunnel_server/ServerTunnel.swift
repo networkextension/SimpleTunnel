@@ -280,8 +280,8 @@ class ServerTunnel: Tunnel, TunnelDelegate, StreamDelegate {
 			case .fetchConfiguration:
 				var personalized = ServerTunnel.configuration.configuration
                 personalized.removeValue(forKey: SettingsKey.IPv4.rawValue)
-                let messageProperties = createMessagePropertiesForConnection(0, commandType: .fetchConfiguration, extraProperties: [TunnelMessageKey.Configuration.rawValue: personalized as AnyObject])
-				sendMessage(messageProperties)
+                let messageProperties = createMessagePropertiesForConnection(0, commandType: .fetchConfiguration, extraProperties: [TunnelMessageKey.Configuration.rawValue: personalized])
+				_ = sendMessage(messageProperties)
 
 			default:
 				break

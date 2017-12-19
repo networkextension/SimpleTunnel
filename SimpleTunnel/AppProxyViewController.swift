@@ -8,8 +8,42 @@
 
 import UIKit
 import NetworkExtension
+extension NEVPNStatus{
+    func descript() ->String{
+        switch self{
+        case .disconnected:
+            
+            return  "Disconnect"
+            
+            
+        case .invalid:
+            
+           return "Please Try Again"
+           
+        case .connected:
+            
+            return "Connected"
+            
+           
+        case .connecting:
+            
+            return "Connecting"
+            
+        case .disconnecting:
+            
+            return "Disconnecting"
+            
+        case .reasserting:
+            return   "Reasserting"
+            
+            
+            
+        }
+    }
+}
 class AppProxyViewController: UIViewController {
     var proxyManager:NEAppProxyProviderManager?// = NEAppProxyProviderManager()
+    @IBOutlet weak var lable:UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         startLoading()
@@ -17,7 +51,15 @@ class AppProxyViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     @IBAction func start(_ sender: Any) {
-        initProviderManager()
+        guard let manager = self.proxyManager else {
+            return
+        }
+        let session = manager.connection as! NETunnelProviderSession
+        if session.status != .connected{
+            initProviderManager()
+        }
+        xpc()
+        
     }
     private func initProviderManager() {
         guard let manager = self.proxyManager else {
@@ -42,8 +84,38 @@ class AppProxyViewController: UIViewController {
                 let manager = managers?.first ?? NEAppProxyProviderManager()
                 //self.state = .loaded(snapshot: Snapshot(from: manager), manager: manager)
                 self.proxyManager = manager
+                self.ob(manager.connection)
+                self.xpc()
+                
             }
         }
+    }
+    
+    func xpc(){
+        guard let targetManager = self.proxyManager else {
+            return
+        }
+        if let session = targetManager.connection as? NETunnelProviderSession,
+            let message = "Hello Provider".data(using: String.Encoding.utf8)
+            , targetManager.connection.status != .invalid{
+            do {
+                try session.sendProviderMessage(message, responseHandler: { (t) in
+                    if let t = t ,let s = String.init(data: t, encoding: .utf8){
+                       
+                        print(s)
+                    }
+                })
+            }catch let e {
+                print("\(e.localizedDescription)")
+            }
+        }
+    }
+    func ob(_ connection:NEVPNConnection){
+        self.lable.text =  connection.status.descript()
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.NEVPNStatusDidChange, object:connection , queue: OperationQueue.main, using: { (t) in
+            self.lable.text =  connection.status.descript()
+            
+        })
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

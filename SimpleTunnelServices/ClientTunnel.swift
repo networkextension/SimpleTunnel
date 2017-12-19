@@ -143,7 +143,7 @@ open class ClientTunnel: Tunnel {
 	}
 
 	/// Send a message to the tunnel server.
-	open func sendMessage(_ messageProperties: [String: AnyObject], completionHandler: @escaping (NSError?) -> Void) {
+	open func sendMessage(_ messageProperties: [String: Any], completionHandler: @escaping (NSError?) -> Void) {
 		guard let messageData = serializeMessage(messageProperties) else {
 			completionHandler(SimpleTunnelError.internalError as NSError)
 			return
