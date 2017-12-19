@@ -131,7 +131,7 @@ class ServerTunnel: Tunnel, TunnelDelegate, StreamDelegate {
             TunnelMessageKey.ResultCode.rawValue: resultCode.rawValue
 			])
 
-        if !sendMessage(properties as [String : AnyObject]) {
+        if !sendMessage(properties) {
 			simpleTunnelLog("Failed to send an open result for connection \(connectionIdentifier)")
 		}
 	}
