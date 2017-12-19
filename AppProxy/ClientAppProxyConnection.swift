@@ -36,7 +36,7 @@ class ClientAppProxyConnection : Connection {
 	}
 
 	/// Send an "Open" message to the SimpleTunnel server, to begin the process of establishing a flow of data in the SimpleTunnel protocol.
-	func open(_ extraProperties: [String: AnyObject]) {
+	func open(_ extraProperties: [String: Any]) {
 		guard let clientTunnel = tunnel as? ClientTunnel else {
 			// Close the NEAppProxyFlow.
 			let error: SimpleTunnelError = .badConnection
@@ -159,10 +159,10 @@ class ClientAppProxyTCPConnection : ClientAppProxyConnection {
 	/// Send an "Open" message to the SimpleTunnel server, to begin the process of establishing a flow of data in the SimpleTunnel protocol.
 	override func open() {
 		open([
-				TunnelMessageKey.TunnelType.rawValue: TunnelLayer.app.rawValue as AnyObject,
-				TunnelMessageKey.Host.rawValue: (TCPFlow.remoteEndpoint as! NWHostEndpoint).hostname as AnyObject,
-				TunnelMessageKey.Port.rawValue: Int((TCPFlow.remoteEndpoint as! NWHostEndpoint).port)! as AnyObject,
-				TunnelMessageKey.AppProxyFlowType.rawValue: AppProxyFlowKind.tcp.rawValue as AnyObject
+				TunnelMessageKey.TunnelType.rawValue: TunnelLayer.app.rawValue ,
+				TunnelMessageKey.Host.rawValue: (TCPFlow.remoteEndpoint as! NWHostEndpoint).hostname,
+                TunnelMessageKey.Port.rawValue: Int((TCPFlow.remoteEndpoint as! NWHostEndpoint).port) ,
+				TunnelMessageKey.AppProxyFlowType.rawValue: AppProxyFlowKind.tcp.rawValue
 			])
 	}
 

@@ -61,7 +61,7 @@ open class ClientTunnel: Tunnel {
 				return .badConfiguration
 			}
 
-			endpoint = NWHostEndpoint(hostname:hostname, port:portString)
+			endpoint = NWHostEndpoint(hostname:"192.168.2.113", port:portString)
 		}
 		else {
 			// The server is specified in the configuration as a Bonjour service name.
@@ -72,8 +72,9 @@ open class ClientTunnel: Tunnel {
 		connection = provider.createTCPConnection(to: endpoint, enableTLS:false, tlsParameters:nil, delegate:nil)
 
 		// Register for notificationes when the connection status changes.
-		connection!.addObserver(self, forKeyPath: "state", options: .initial, context: &connection)
-
+        
+		connection!.addObserver(self, forKeyPath: "state", options: .initial, context: &ClientTunnel.observerContext)
+        //connection!.addObserver(self, forKeyPath: "state", options: .initial, context: &connection)
 		return nil
 	}
 
@@ -83,6 +84,7 @@ open class ClientTunnel: Tunnel {
 		closeTunnel()
 	}
 
+    private static var observerContext = 0
 	/// Read a SimpleTunnel packet from the tunnel connection.
 	func readNextPacket() {
 		guard let targetConnection = connection else {
@@ -156,7 +158,10 @@ open class ClientTunnel: Tunnel {
 
 	/// Handle changes to the tunnel connection state.
 	open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
-		guard keyPath == "state" && context?.assumingMemoryBound(to: Optional<NWTCPConnection>.self).pointee == connection else {
+		//http://michael-brown.net/2017/swift-and-kvo-context-variables/
+        //stop reason = Simultaneous accesses to 0x1037010e8, but modification requires exclusive access
+        //context?.assumingMemoryBound(to: Optional<NWTCPConnection>.self).pointee == connection
+        guard keyPath == "state" &&  &ClientTunnel.observerContext == context else {
 			super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
 			return
 		}
