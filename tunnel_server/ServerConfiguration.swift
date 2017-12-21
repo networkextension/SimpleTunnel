@@ -23,7 +23,7 @@ class ServerConfiguration {
 	// MARK: Initializers
 
 	init() {
-		configuration = [String: AnyObject]()
+		configuration = [String: Any]()
 		addressPool = nil
 	}
 
@@ -60,11 +60,11 @@ class ServerConfiguration {
 		addressPool = AddressPool(startAddress: startAddress, endAddress: endAddress)
 
 		// The configuration dictionary gets sent to clients as the tunnel settings dictionary. Remove the IP pool parameters.
-		if let value = newConfiguration[SettingsKey.IPv4.rawValue] as? [NSObject: AnyObject] {
+		if let value = newConfiguration[SettingsKey.IPv4.rawValue] as? [NSObject: Any] {
             var IPv4Dictionary = value
             
-            IPv4Dictionary.removeValue(forKey: SettingsKey.Pool.rawValue as NSObject)
-            newConfiguration[SettingsKey.IPv4.rawValue] = IPv4Dictionary as AnyObject
+            IPv4Dictionary.removeValue(forKey: SettingsKey.Pool.rawValue)
+            newConfiguration[SettingsKey.IPv4.rawValue] = IPv4Dictionary
 		}
 
         if !newConfiguration.keys.contains(where: { $0 == SettingsKey.DNS.rawValue }) {
@@ -77,7 +77,7 @@ class ServerConfiguration {
 			]
 		}
 
-        configuration = newConfiguration as [String : AnyObject]
+        configuration = newConfiguration
 
 		return true
 	}

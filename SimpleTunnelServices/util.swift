@@ -218,11 +218,11 @@ public enum SettingsKey: String {
 }
 
 /// Get a value from a plist given a list of keys.
-public func getValueFromPlist(_ plist: [NSObject: AnyObject], keyArray: [SettingsKey]) -> AnyObject? {
+public func getValueFromPlist(_ plist: [NSObject: Any], keyArray: [SettingsKey]) -> AnyObject? {
 	var subPlist = plist
 	for (index, key) in keyArray.enumerated() {
 		if index == keyArray.count - 1 {
-			return subPlist[key.rawValue as NSString]
+            return subPlist[key.rawValue as NSString] as AnyObject
 		}
 		else if let subSubPlist = subPlist[key.rawValue as NSString] as? [NSObject: AnyObject] {
 			subPlist = subSubPlist

@@ -106,17 +106,17 @@ class PacketTunnelProvider: NEPacketTunnelProvider, TunnelDelegate, ClientTunnel
 
 		// Create the virtual interface settings.
 		guard let settings = createTunnelSettingsFromConfiguration(configuration) else {
-			pendingStartCompletion?(SimpleTunnelError.internalError as NSError)
+			pendingStartCompletion?(SimpleTunnelError.internalError )
 			pendingStartCompletion = nil
 			return
 		}
 
 		// Set the virtual interface settings.
 		setTunnelNetworkSettings(settings) { error in
-			var startError: NSError?
+			var startError: Error?
 			if let error = error {
 				simpleTunnelLog("Failed to set the tunnel network settings: \(error)")
-				startError = SimpleTunnelError.badConfiguration as NSError
+				startError = SimpleTunnelError.badConfiguration
 			}
 			else {
 				// Now we can start reading and writing packets to/from the virtual interface.
@@ -130,7 +130,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider, TunnelDelegate, ClientTunnel
 	}
 
 	/// Handle the event of the logical flow of packets being torn down.
-	func tunnelConnectionDidClose(_ connection: ClientTunnelConnection, error: NSError?) {
+	func tunnelConnectionDidClose(_ connection: ClientTunnelConnection, error: Error?) {
 		tunnelConnection = nil
 		tunnel?.closeTunnelWithError(error)
 	}
