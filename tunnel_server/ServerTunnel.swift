@@ -137,16 +137,16 @@ class ServerTunnel: Tunnel, TunnelDelegate, StreamDelegate {
 	}
 
 	/// Handle a "Connection Open" message received from the client.
-	func handleConnectionOpen(properties: [String: AnyObject]) {
-		guard let connectionIdentifier = properties[TunnelMessageKey.Identifier.rawValue] as? Int,
-            let tunnelLayerNumber = properties[TunnelMessageKey.TunnelType.rawValue] as? Int,
+	func handleConnectionOpen(properties: [String: Any]) {
+		guard let connectionIdentifier = properties[TunnelMessageKey.Identifier.rawValue] ,
+            let tunnelLayerNumber = properties[TunnelMessageKey.TunnelType.rawValue] ,
             let tunnelLayer = TunnelLayer(rawValue: tunnelLayerNumber)
 			else { return }
 
 		switch tunnelLayer {
 			case .app:
 
-				guard let flowKindNumber = properties[TunnelMessageKey.AppProxyFlowType.rawValue] as? Int,
+				guard let flowKindNumber = properties[TunnelMessageKey.AppProxyFlowType.rawValue] ,
                     let flowKind = AppProxyFlowKind(rawValue: flowKindNumber)
 					else { break }
 

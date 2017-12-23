@@ -93,11 +93,7 @@ class UDPServerConnection: Connection {
 		guard newSocket > 0 else { return false }
 
         let newResponseSource = DispatchSource.makeReadSource(fileDescriptor:newSocket , queue: DispatchQueue.main)
-        //MARK: fixme
-//        guard let newResponseSource = dispatch_source_create(DISPATCH_SOURCE_TYPE_READ, UInt(newSocket), 0, dispatch_get_main_queue()) else {
-//            close(newSocket)
-//            return false
-//        }
+       
 
         newResponseSource.setCancelHandler() {
 			simpleTunnelLog("closing udp socket for connection \(self.identifier)")
@@ -113,16 +109,14 @@ class UDPServerConnection: Connection {
             let response = [UInt8](repeating: 0, count: 4096)
             let UDPSocket = Int32(source.handle)
 
-            let bytesRead = withUnsafeMutablePointer(to: &socketAddress) {_ in
-                return 0
-//                recvfrom(UDPSocket, UnsafeMutableRawPointer(mutating: response), response.count, 0, UnsafeMutablePointer($0), &socketAddressLength)
+            let bytesRead = withUnsafeMutablePointer(to: &socketAddress) {ptr in
+                recvfrom(UDPSocket, UnsafeMutableRawPointer(mutating: response), response.count, 0, ptr, &socketAddressLength)
 			}
 
 			guard bytesRead >= 0 else {
                 if errno < 0 {
-//                    if let errorString = String(UTF8String: strerror(errno)) {
-//                        simpleTunnelLog("recvfrom failed: \(errorString)")
-//                    }
+                    let errorString = String.init(cString: strerror(errno))
+                    simpleTunnelLog("recvfrom failed: \(errorString)")
                 }
 				
 				self.closeConnection(.all)
@@ -181,10 +175,10 @@ class UDPServerConnection: Connection {
 					return
 				}
 				serverAddress.setPort(port)
-//MARK: fixme
-//                sent = withUnsafePointer(to: &serverAddress.sin) {
-//                    sendto(UDPSocket, data.bytes, data.count, 0, UnsafePointer($0), socklen_t(serverAddress.sin.sin_len))
-//                }
+                sent = withUnsafePointer(to: &serverAddress.sin) { ptr in
+                    sendto(UDPSocket, (data as NSData).bytes, data.count, 0, ptr, socklen_t(serverAddress.sin.sin_len))
+                }
+
 
 			case AF_INET6:
 				let serverAddress = SocketAddress6()
@@ -193,16 +187,9 @@ class UDPServerConnection: Connection {
 					return
 				}
 				serverAddress.setPort(port)
-            //MARK: fixme
-//                sent = withUnsafePointer(to: &serverAddress.sin6) { add in
-//
-//                    data.withUnsafeBytes({ (t:UnsafeRawPointer) in
-//                        let  x = sendto(UDPSocket,t, data.count, 0, UnsafePointer(add), socklen_t(serverAddress.sin6.sin6_len))
-//                        return x
-//                    })
-//
-//                }
-
+                sent = withUnsafePointer(to: &serverAddress.sin6) { add in
+                    sendto(UDPSocket, (data as NSData).bytes, data.count, 0, add, socklen_t(serverAddress.sin6.sin6_len))
+                }
 			default:
 				return
         }

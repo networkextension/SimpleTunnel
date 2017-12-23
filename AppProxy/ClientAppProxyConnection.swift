@@ -57,7 +57,7 @@ class ClientAppProxyConnection : Connection {
 	}
 
 	/// Handle the result of sending a data message to the SimpleTunnel server.
-	func handleSendResult(_ error: NSError?) {
+	func handleSendResult(_ error: Error?) {
 	}
 
 	/// Handle errors that occur on the connection.
@@ -71,7 +71,7 @@ class ClientAppProxyConnection : Connection {
 	}
 
 	/// Send a "Data" message to the SimpleTunnel server.
-	func sendDataMessage(_ data: Data, extraProperties: [String: AnyObject] = [:]) {
+	func sendDataMessage(_ data: Data, extraProperties: [String: Any] = [:]) {
 		queue.async {
 
 			guard let clientTunnel = self.tunnel as? ClientTunnel else { return }
@@ -80,7 +80,7 @@ class ClientAppProxyConnection : Connection {
 			self.queue.suspend()
 
 			var dataProperties = extraProperties
-			dataProperties[TunnelMessageKey.Data.rawValue] = data as AnyObject?
+			dataProperties[TunnelMessageKey.Data.rawValue] = data
 
 			let properties = createMessagePropertiesForConnection(self.identifier, commandType: .data, extraProperties:dataProperties)
 
@@ -113,7 +113,7 @@ class ClientAppProxyConnection : Connection {
 
 		// Now that the SimpleTunnel connection is open, indicate that we are ready to handle data on the NEAppProxyFlow.
 		appProxyFlow.open(withLocalEndpoint: localAddress) { error in
-			self.handleSendResult(error as NSError?)
+			self.handleSendResult(error)
 		}
 	}
 
@@ -167,7 +167,7 @@ class ClientAppProxyTCPConnection : ClientAppProxyConnection {
 	}
 
 	/// Handle the result of sending a "Data" message to the SimpleTunnel server.
-	override func handleSendResult(_ error: NSError?) {
+	override func handleSendResult(_ error: Error?) {
 		if let sendError = error {
 			simpleTunnelLog("Failed to send Data Message to the Tunnel Server. error = \(sendError)")
 			handleErrorCondition(NEAppProxyFlowError.hostUnreachable)
@@ -235,7 +235,7 @@ class ClientAppProxyUDPConnection : ClientAppProxyConnection {
 	}
 
 	/// Handle the result of sending a "Data" message to the SimpleTunnel server.
-	override func handleSendResult(_ error: NSError?) {
+	override func handleSendResult(_ error: Error?) {
 
 		if let sendError = error {
 			simpleTunnelLog("Failed to send message to Tunnel Server. error = \(sendError)")
@@ -278,8 +278,8 @@ class ClientAppProxyUDPConnection : ClientAppProxyConnection {
 
 				// Send a data message to the SimpleTunnel server.
 				self.sendDataMessage(datagram, extraProperties:[
-						TunnelMessageKey.Host.rawValue: endpoint.hostname as AnyObject,
-						TunnelMessageKey.Port.rawValue: Int(endpoint.port)! as AnyObject
+						TunnelMessageKey.Host.rawValue: endpoint.hostname ,
+						TunnelMessageKey.Port.rawValue: Int(endpoint.port)!
 					])
 			}
 		}

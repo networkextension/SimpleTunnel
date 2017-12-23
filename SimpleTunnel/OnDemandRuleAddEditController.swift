@@ -139,13 +139,13 @@ class OnDemandRuleAddEditController: ConfigurationParametersViewController {
 				guard let enumController = segue.destination as? EnumPickerController else { break }
 
 				let enumValues: [NEOnDemandRuleInterfaceType] = [ .any, .wiFi, .cellular ],
-					stringValues = enumValues.flatMap { $0.description },
+					stringValues = enumValues.map { $0.description },
 					currentSelection = enumValues.index { $0 == targetRule.interfaceTypeMatch }
 
-            //MARK: --fixme
-//                enumController.setValues(stringValues, title: "Interface Type", currentSelection: currentSelection) { newRow in
-//                    self.targetRule.interfaceTypeMatch = enumValues[newRow]
-//                }
+           
+                enumController.setValues(stringValues, title: "Interface Type", currentSelection: currentSelection) { newRow in
+                    self.targetRule.interfaceTypeMatch = enumValues[newRow]
+                }
 
 			case "edit-dns-servers":
 				// The user tapped on the DNS Servers cell.
@@ -168,13 +168,13 @@ class OnDemandRuleAddEditController: ConfigurationParametersViewController {
 				guard let enumController = segue.destination as? EnumPickerController else { break }
 
 				let enumValues: [NEOnDemandRuleAction] = [ .evaluateConnection, .disconnect, .connect, .ignore ],
-					stringValues = enumValues.flatMap { $0.description },
+					stringValues = enumValues.map { $0.description },
 					currentSelection = enumValues.index { $0 == targetRule.action }
 
-            //MARK: --fixme
-//                enumController.setValues(stringValues, title: "Action", currentSelection: currentSelection) { newRow in
-//                    self.changeTargetRuleType(enumValues[newRow])
-//                }
+            
+                enumController.setValues(stringValues, title: "Action", currentSelection: currentSelection) { newRow in
+                    self.changeTargetRuleType(enumValues[newRow])
+                }
 
 			case "edit-connection-rules":
 				// The user tapped on the Connection Rules cell.
