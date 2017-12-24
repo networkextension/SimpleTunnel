@@ -265,7 +265,7 @@ class AddEditConfiguration: ConfigurationParametersViewController {
 		let status = SecItemCopyMatching(query as CFDictionary, &returnValue)
 
 		if let passwordData = returnValue as? Data , status == errSecSuccess {
-			result = NSString(data: passwordData, encoding: String.Encoding.utf8.rawValue) as? String
+			result = String.init(data: passwordData, encoding: .utf8)
 		}
 		return result
 	}

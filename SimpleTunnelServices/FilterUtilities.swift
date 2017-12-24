@@ -78,10 +78,10 @@ open class FilterUtilities {
 	open class func fetchRulesFromServer(_ serverAddress: String?) {
 		simpleTunnelLog("fetch rules called")
 
-		guard serverAddress != nil else { return }
+		guard let  serverAddress = serverAddress  else { return }
 		simpleTunnelLog("Fetching rules from \(serverAddress)")
 
-		guard let infoURL = URL(string: "http://\(serverAddress!)/rules/") else { return }
+		guard let infoURL = URL(string: "http://\(serverAddress)/rules/") else { return }
 		simpleTunnelLog("Rules url is \(infoURL)")
 
 		let content: String

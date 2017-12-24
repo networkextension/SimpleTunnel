@@ -161,7 +161,7 @@ class ClientAppProxyTCPConnection : ClientAppProxyConnection {
 		open([
 				TunnelMessageKey.TunnelType.rawValue: TunnelLayer.app.rawValue ,
 				TunnelMessageKey.Host.rawValue: (TCPFlow.remoteEndpoint as! NWHostEndpoint).hostname,
-                TunnelMessageKey.Port.rawValue: Int((TCPFlow.remoteEndpoint as! NWHostEndpoint).port) ,
+                TunnelMessageKey.Port.rawValue: (TCPFlow.remoteEndpoint as! NWHostEndpoint).port ,
 				TunnelMessageKey.AppProxyFlowType.rawValue: AppProxyFlowKind.tcp.rawValue
 			])
 	}
@@ -177,7 +177,7 @@ class ClientAppProxyTCPConnection : ClientAppProxyConnection {
 		// Read another chunk of data from the source application.
 		TCPFlow.readData { data, readError in
 			guard let readData = data , readError == nil else {
-				simpleTunnelLog("Failed to read data from the TCP flow. error = \(readError?.localizedDescription)")
+				simpleTunnelLog("Failed to read data from the TCP flow. error = \(readError!.localizedDescription)")
 				self.handleErrorCondition(.peerReset)
 				return
 			}
