@@ -16,6 +16,21 @@
 		690F9EC61FE5F38600F85684 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 690F9EC51FE5F38600F85684 /* NetworkExtension.framework */; };
 		690F9EC71FE5F39700F85684 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 690F9EC51FE5F38600F85684 /* NetworkExtension.framework */; };
 		695953321FE666B000915DBA /* AppProxyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695953311FE666B000915DBA /* AppProxyViewController.swift */; };
+		69CC27571FFF25F400E70306 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CC27561FFF25F400E70306 /* AppDelegate.swift */; };
+		69CC27591FFF25F400E70306 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CC27581FFF25F400E70306 /* ViewController.swift */; };
+		69CC275B1FFF25F400E70306 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69CC275A1FFF25F400E70306 /* Assets.xcassets */; };
+		69CC275E1FFF25F400E70306 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69CC275C1FFF25F400E70306 /* Main.storyboard */; };
+		69CC27771FFF26B600E70306 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69CC27761FFF26B600E70306 /* NetworkExtension.framework */; };
+		69CC27A11FFF296900E70306 /* PacketTunnel-Mac.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 69CC27981FFF296900E70306 /* PacketTunnel-Mac.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		69CC27AE1FFF2A3000E70306 /* SimpleTunnelServicesMac.h in Headers */ = {isa = PBXBuildFile; fileRef = 69CC27AC1FFF2A3000E70306 /* SimpleTunnelServicesMac.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		69CC27B11FFF2A3000E70306 /* SimpleTunnelServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69CC27AA1FFF2A3000E70306 /* SimpleTunnelServices.framework */; };
+		69CC27B71FFF2A3700E70306 /* util.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0993D351A8A656600510E18 /* util.swift */; };
+		69CC27B81FFF2A3A00E70306 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0993D331A8A654000510E18 /* Connection.swift */; };
+		69CC27B91FFF2A3E00E70306 /* ClientTunnel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0993D4D1A8A72E000510E18 /* ClientTunnel.swift */; };
+		69CC27BA1FFF2A4200E70306 /* Tunnel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0993D311A8A651800510E18 /* Tunnel.swift */; };
+		69CC27BD1FFF2AB900E70306 /* SimpleTunnelServices.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69CC27AA1FFF2A3000E70306 /* SimpleTunnelServices.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		69CC27BE1FFF2AD100E70306 /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D507F51A8943FD005D1195 /* PacketTunnelProvider.swift */; };
+		69CC27BF1FFF2AD400E70306 /* ClientTunnelConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B602051A8E61B300A3C5D4 /* ClientTunnelConnection.swift */; };
 		720FCA981B057C7900B168EB /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720FCA971B057C7900B168EB /* DataExtension.swift */; };
 		720FCAAA1B057C9400B168EB /* ControlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720FCAA91B057C9400B168EB /* ControlExtension.swift */; };
 		B01A16991A8A616000BC9EFD /* SimpleTunnelServices.h in Headers */ = {isa = PBXBuildFile; fileRef = B01A16981A8A616000BC9EFD /* SimpleTunnelServices.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -68,6 +83,13 @@
 			remoteGlobalIDString = B07CCB6C1A89414500A4F1E5;
 			remoteInfo = PacketTunnel;
 		};
+		69CC279F1FFF296900E70306 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B07CCB2F1A8940E600A4F1E5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 69CC27971FFF296900E70306;
+			remoteInfo = "PacketTunnel-Mac";
+		};
 		C48A18BF1B103A5800453F3E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B07CCB2F1A8940E600A4F1E5 /* Project object */;
@@ -117,6 +139,28 @@
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		69CC27751FFF266300E70306 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				69CC27A11FFF296900E70306 /* PacketTunnel-Mac.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69CC27B61FFF2A3000E70306 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				69CC27BD1FFF2AB900E70306 /* SimpleTunnelServices.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B01A16B21A8A616000BC9EFD /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -148,6 +192,20 @@
 		442B69421B06724900382B6D /* AppProxyProvider.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AppProxyProvider.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		690F9EC51FE5F38600F85684 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		695953311FE666B000915DBA /* AppProxyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppProxyViewController.swift; sourceTree = "<group>"; };
+		69CC27541FFF25F400E70306 /* mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		69CC27561FFF25F400E70306 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		69CC27581FFF25F400E70306 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		69CC275A1FFF25F400E70306 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		69CC275D1FFF25F400E70306 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		69CC275F1FFF25F400E70306 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		69CC27601FFF25F400E70306 /* mac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = mac.entitlements; sourceTree = "<group>"; };
+		69CC27761FFF26B600E70306 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/NetworkExtension.framework; sourceTree = DEVELOPER_DIR; };
+		69CC27981FFF296900E70306 /* PacketTunnel-Mac.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "PacketTunnel-Mac.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		69CC279B1FFF296900E70306 /* PacketTunnel_Mac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PacketTunnel_Mac.entitlements; sourceTree = "<group>"; };
+		69CC279E1FFF296900E70306 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		69CC27AA1FFF2A3000E70306 /* SimpleTunnelServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SimpleTunnelServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		69CC27AC1FFF2A3000E70306 /* SimpleTunnelServicesMac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SimpleTunnelServicesMac.h; sourceTree = "<group>"; };
+		69CC27AD1FFF2A3000E70306 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		720FCA951B057C7900B168EB /* FilterDataProvider.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FilterDataProvider.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		720FCA971B057C7900B168EB /* DataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtension.swift; sourceTree = "<group>"; };
 		720FCA9C1B057C7900B168EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -213,6 +271,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				690F9EC61FE5F38600F85684 /* NetworkExtension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69CC27511FFF25F400E70306 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69CC27B11FFF2A3000E70306 /* SimpleTunnelServices.framework in Frameworks */,
+				69CC27771FFF26B600E70306 /* NetworkExtension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69CC27951FFF296900E70306 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69CC27A61FFF2A3000E70306 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,9 +365,49 @@
 		690F9EC41FE5F38600F85684 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				69CC27761FFF26B600E70306 /* NetworkExtension.framework */,
 				690F9EC51FE5F38600F85684 /* NetworkExtension.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		69CC27551FFF25F400E70306 /* mac */ = {
+			isa = PBXGroup;
+			children = (
+				69CC27561FFF25F400E70306 /* AppDelegate.swift */,
+				69CC27581FFF25F400E70306 /* ViewController.swift */,
+				69CC275A1FFF25F400E70306 /* Assets.xcassets */,
+				69CC275C1FFF25F400E70306 /* Main.storyboard */,
+				69CC275F1FFF25F400E70306 /* Info.plist */,
+				69CC27601FFF25F400E70306 /* mac.entitlements */,
+			);
+			path = mac;
+			sourceTree = "<group>";
+		};
+		69CC27991FFF296900E70306 /* PacketTunnel-Mac */ = {
+			isa = PBXGroup;
+			children = (
+				69CC279E1FFF296900E70306 /* Info.plist */,
+				69CC279A1FFF296900E70306 /* Supporting Files */,
+			);
+			path = "PacketTunnel-Mac";
+			sourceTree = "<group>";
+		};
+		69CC279A1FFF296900E70306 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				69CC279B1FFF296900E70306 /* PacketTunnel_Mac.entitlements */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		69CC27AB1FFF2A3000E70306 /* SimpleTunnelServicesMac */ = {
+			isa = PBXGroup;
+			children = (
+				69CC27AC1FFF2A3000E70306 /* SimpleTunnelServicesMac.h */,
+				69CC27AD1FFF2A3000E70306 /* Info.plist */,
+			);
+			path = SimpleTunnelServicesMac;
 			sourceTree = "<group>";
 		};
 		720FCA961B057C7900B168EB /* FilterDataProvider */ = {
@@ -342,6 +463,9 @@
 				B0993D3C1A8A6DBC00510E18 /* tunnel_server */,
 				720FCA961B057C7900B168EB /* FilterDataProvider */,
 				720FCAA81B057C9400B168EB /* FilterControlProvider */,
+				69CC27551FFF25F400E70306 /* mac */,
+				69CC27991FFF296900E70306 /* PacketTunnel-Mac */,
+				69CC27AB1FFF2A3000E70306 /* SimpleTunnelServicesMac */,
 				B07CCB381A8940E600A4F1E5 /* Products */,
 				690F9EC41FE5F38600F85684 /* Frameworks */,
 			);
@@ -357,6 +481,9 @@
 				720FCA951B057C7900B168EB /* FilterDataProvider.appex */,
 				720FCAA71B057C9400B168EB /* FilterControlProvider.appex */,
 				442B69421B06724900382B6D /* AppProxyProvider.appex */,
+				69CC27541FFF25F400E70306 /* mac.app */,
+				69CC27981FFF296900E70306 /* PacketTunnel-Mac.appex */,
+				69CC27AA1FFF2A3000E70306 /* SimpleTunnelServices.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -441,6 +568,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		69CC27A71FFF2A3000E70306 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69CC27AE1FFF2A3000E70306 /* SimpleTunnelServicesMac.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B01A16911A8A615F00BC9EFD /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -469,6 +604,61 @@
 			productName = PacketTunnelFileProvider;
 			productReference = 442B69421B06724900382B6D /* AppProxyProvider.appex */;
 			productType = "com.apple.product-type.app-extension";
+		};
+		69CC27531FFF25F400E70306 /* mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 69CC27631FFF25F400E70306 /* Build configuration list for PBXNativeTarget "mac" */;
+			buildPhases = (
+				69CC27501FFF25F400E70306 /* Sources */,
+				69CC27511FFF25F400E70306 /* Frameworks */,
+				69CC27521FFF25F400E70306 /* Resources */,
+				69CC27751FFF266300E70306 /* Embed App Extensions */,
+				69CC27B61FFF2A3000E70306 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				69CC27A01FFF296900E70306 /* PBXTargetDependency */,
+			);
+			name = mac;
+			productName = mac;
+			productReference = 69CC27541FFF25F400E70306 /* mac.app */;
+			productType = "com.apple.product-type.application";
+		};
+		69CC27971FFF296900E70306 /* PacketTunnel-Mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 69CC27A21FFF296900E70306 /* Build configuration list for PBXNativeTarget "PacketTunnel-Mac" */;
+			buildPhases = (
+				69CC27941FFF296900E70306 /* Sources */,
+				69CC27951FFF296900E70306 /* Frameworks */,
+				69CC27961FFF296900E70306 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "PacketTunnel-Mac";
+			productName = "PacketTunnel-Mac";
+			productReference = 69CC27981FFF296900E70306 /* PacketTunnel-Mac.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		69CC27A91FFF2A3000E70306 /* SimpleTunnelServicesMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 69CC27B31FFF2A3000E70306 /* Build configuration list for PBXNativeTarget "SimpleTunnelServicesMac" */;
+			buildPhases = (
+				69CC27A51FFF2A3000E70306 /* Sources */,
+				69CC27A61FFF2A3000E70306 /* Frameworks */,
+				69CC27A71FFF2A3000E70306 /* Headers */,
+				69CC27A81FFF2A3000E70306 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SimpleTunnelServicesMac;
+			productName = SimpleTunnelServicesMac;
+			productReference = 69CC27AA1FFF2A3000E70306 /* SimpleTunnelServices.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 		720FCA941B057C7900B168EB /* FilterDataProvider */ = {
 			isa = PBXNativeTarget;
@@ -586,7 +776,7 @@
 		B07CCB2F1A8940E600A4F1E5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Apple Inc.";
 				TargetAttributes = {
@@ -599,6 +789,32 @@
 								enabled = 0;
 							};
 						};
+					};
+					69CC27531FFF25F400E70306 = {
+						CreatedOnToolsVersion = 9.2;
+						DevelopmentTeam = 745WQDK4L7;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.Mac = {
+								enabled = 1;
+							};
+							com.apple.NetworkExtensions = {
+								enabled = 1;
+							};
+							com.apple.VPNLite = {
+								enabled = 1;
+							};
+						};
+					};
+					69CC27971FFF296900E70306 = {
+						CreatedOnToolsVersion = 9.2;
+						DevelopmentTeam = 745WQDK4L7;
+						ProvisioningStyle = Automatic;
+					};
+					69CC27A91FFF2A3000E70306 = {
+						CreatedOnToolsVersion = 9.2;
+						DevelopmentTeam = 745WQDK4L7;
+						ProvisioningStyle = Automatic;
 					};
 					720FCA941B057C7900B168EB = {
 						CreatedOnToolsVersion = 7.0;
@@ -653,12 +869,38 @@
 				720FCA941B057C7900B168EB /* FilterDataProvider */,
 				720FCAA61B057C9400B168EB /* FilterControlProvider */,
 				442B69371B06724900382B6D /* AppProxy */,
+				69CC27531FFF25F400E70306 /* mac */,
+				69CC27971FFF296900E70306 /* PacketTunnel-Mac */,
+				69CC27A91FFF2A3000E70306 /* SimpleTunnelServicesMac */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		442B693E1B06724900382B6D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69CC27521FFF25F400E70306 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69CC275B1FFF25F400E70306 /* Assets.xcassets in Resources */,
+				69CC275E1FFF25F400E70306 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69CC27961FFF296900E70306 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69CC27A81FFF2A3000E70306 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -712,6 +954,35 @@
 			files = (
 				442B69441B06730900382B6D /* ClientAppProxyConnection.swift in Sources */,
 				442B69451B06730900382B6D /* AppProxyProvider.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69CC27501FFF25F400E70306 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69CC27591FFF25F400E70306 /* ViewController.swift in Sources */,
+				69CC27571FFF25F400E70306 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69CC27941FFF296900E70306 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69CC27BF1FFF2AD400E70306 /* ClientTunnelConnection.swift in Sources */,
+				69CC27BE1FFF2AD100E70306 /* PacketTunnelProvider.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69CC27A51FFF2A3000E70306 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69CC27B71FFF2A3700E70306 /* util.swift in Sources */,
+				69CC27BA1FFF2A4200E70306 /* Tunnel.swift in Sources */,
+				69CC27B91FFF2A3E00E70306 /* ClientTunnel.swift in Sources */,
+				69CC27B81FFF2A3A00E70306 /* Connection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -811,6 +1082,11 @@
 			target = B07CCB6C1A89414500A4F1E5 /* PacketTunnel */;
 			targetProxy = 6904B0F91FFDC625000B64F3 /* PBXContainerItemProxy */;
 		};
+		69CC27A01FFF296900E70306 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 69CC27971FFF296900E70306 /* PacketTunnel-Mac */;
+			targetProxy = 69CC279F1FFF296900E70306 /* PBXContainerItemProxy */;
+		};
 		C4CEAAF91B1A45A6009C8CC0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B01A16931A8A615F00BC9EFD /* SimpleTunnelServices */;
@@ -834,6 +1110,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		69CC275C1FFF25F400E70306 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				69CC275D1FFF25F400E70306 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		B07CCB401A8940E600A4F1E5 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -884,6 +1168,198 @@
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		69CC27611FFF25F400E70306 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = mac/mac.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 745WQDK4L7;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = mac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.Surf.mac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.0;
+				VALID_ARCHS = "";
+				"VALID_ARCHS[sdk=*]" = x86_64;
+			};
+			name = Debug;
+		};
+		69CC27621FFF25F400E70306 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = mac/mac.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 745WQDK4L7;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = mac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.Surf.mac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 4.0;
+				VALID_ARCHS = "";
+			};
+			name = Release;
+		};
+		69CC27A31FFF296900E70306 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = "PacketTunnel-Mac/PacketTunnel_Mac.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 745WQDK4L7;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "PacketTunnel-Mac/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yarshure.Surf.mac.PacketTunnel-Mac";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.0;
+				VALID_ARCHS = x86_64;
+			};
+			name = Debug;
+		};
+		69CC27A41FFF296900E70306 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = "PacketTunnel-Mac/PacketTunnel_Mac.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 745WQDK4L7;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "PacketTunnel-Mac/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yarshure.Surf.mac.PacketTunnel-Mac";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				VALID_ARCHS = x86_64;
+			};
+			name = Release;
+		};
+		69CC27B41FFF2A3000E70306 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 745WQDK4L7;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = SimpleTunnelServices/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.SimpleTunnelServices;
+				PRODUCT_MODULE_NAME = SimpleTunnelServices;
+				PRODUCT_NAME = SimpleTunnelServices;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.0;
+				VALID_ARCHS = x86_64;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		69CC27B51FFF2A3000E70306 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 745WQDK4L7;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = SimpleTunnelServices/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.SimpleTunnelServices;
+				PRODUCT_MODULE_NAME = SimpleTunnelServices;
+				PRODUCT_NAME = SimpleTunnelServices;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				VALID_ARCHS = x86_64;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -972,7 +1448,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = "-fapplication-extension";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.SimpleTunnelServices;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = SimpleTunnelServices;
+				PRODUCT_NAME = SimpleTunnelServices;
 				SKIP_INSTALL = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -997,7 +1474,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = "-fapplication-extension";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.SimpleTunnelServices;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = SimpleTunnelServices;
+				PRODUCT_NAME = SimpleTunnelServices;
 				SKIP_INSTALL = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -1052,6 +1530,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				ONLY_ACTIVE_ARCH = YES;
 				PLUGIN_BUNDLE_ID = "com.apple.VPN-Development1.vpnplugin";
 				PLUGIN_NAME = AppTunnel;
@@ -1100,6 +1579,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PLUGIN_BUNDLE_ID = "com.apple.VPN-Development1.vpnplugin";
 				PLUGIN_NAME = AppTunnel;
 				SDKROOT = iphoneos;
@@ -1227,6 +1707,33 @@
 			buildConfigurations = (
 				442B69401B06724900382B6D /* Debug */,
 				442B69411B06724900382B6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		69CC27631FFF25F400E70306 /* Build configuration list for PBXNativeTarget "mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69CC27611FFF25F400E70306 /* Debug */,
+				69CC27621FFF25F400E70306 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		69CC27A21FFF296900E70306 /* Build configuration list for PBXNativeTarget "PacketTunnel-Mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69CC27A31FFF296900E70306 /* Debug */,
+				69CC27A41FFF296900E70306 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		69CC27B31FFF2A3000E70306 /* Build configuration list for PBXNativeTarget "SimpleTunnelServicesMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69CC27B41FFF2A3000E70306 /* Debug */,
+				69CC27B51FFF2A3000E70306 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
