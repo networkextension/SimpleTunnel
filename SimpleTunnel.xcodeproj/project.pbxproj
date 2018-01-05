@@ -12,6 +12,7 @@
 		442B69361B06721E00382B6D /* ClientAppProxyConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442B69351B06721E00382B6D /* ClientAppProxyConnection.swift */; };
 		442B69441B06730900382B6D /* ClientAppProxyConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442B69351B06721E00382B6D /* ClientAppProxyConnection.swift */; };
 		442B69451B06730900382B6D /* AppProxyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442B69331B06721300382B6D /* AppProxyProvider.swift */; };
+		6904B0FB1FFDC8D1000B64F3 /* PacketTunnel.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B07CCB6D1A89414500A4F1E5 /* PacketTunnel.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		690F9EC61FE5F38600F85684 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 690F9EC51FE5F38600F85684 /* NetworkExtension.framework */; };
 		690F9EC71FE5F39700F85684 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 690F9EC51FE5F38600F85684 /* NetworkExtension.framework */; };
 		695953321FE666B000915DBA /* AppProxyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695953311FE666B000915DBA /* AppProxyViewController.swift */; };
@@ -57,10 +58,16 @@
 		C4E003AE1B1A9E45001A01C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B07CCB401A8940E600A4F1E5 /* Main.storyboard */; };
 		C4E003AF1B1A9E45001A01C0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B07CCB431A8940E600A4F1E5 /* Images.xcassets */; };
 		C4E003B01B1A9E45001A01C0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B07CCB451A8940E600A4F1E5 /* LaunchScreen.xib */; };
-		C4F7B44B1B3B5DD40033A7E4 /* AppProxyProvider.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 442B69421B06724900382B6D /* AppProxyProvider.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		6904B0F91FFDC625000B64F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B07CCB2F1A8940E600A4F1E5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B07CCB6C1A89414500A4F1E5;
+			remoteInfo = PacketTunnel;
+		};
 		C48A18BF1B103A5800453F3E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B07CCB2F1A8940E600A4F1E5 /* Project object */;
@@ -96,16 +103,20 @@
 			remoteGlobalIDString = B01A16931A8A615F00BC9EFD;
 			remoteInfo = SimpleTunnelServices;
 		};
-		C4F7B4491B3B5DC60033A7E4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B07CCB2F1A8940E600A4F1E5 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 442B69371B06724900382B6D;
-			remoteInfo = AppProxy;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		6904B0FC1FFDC8D2000B64F3 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				6904B0FB1FFDC8D1000B64F3 /* PacketTunnel.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B01A16B21A8A616000BC9EFD /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -115,17 +126,6 @@
 				B01A16AC1A8A616000BC9EFD /* SimpleTunnelServices.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B07CCB801A89414600A4F1E5 /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				C4F7B44B1B3B5DD40033A7E4 /* AppProxyProvider.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		B0993D391A8A6DBC00510E18 /* CopyFiles */ = {
@@ -531,13 +531,13 @@
 				B07CCB331A8940E600A4F1E5 /* Sources */,
 				B07CCB341A8940E600A4F1E5 /* Frameworks */,
 				B07CCB351A8940E600A4F1E5 /* Resources */,
-				B07CCB801A89414600A4F1E5 /* Embed App Extensions */,
 				B01A16B21A8A616000BC9EFD /* Embed Frameworks */,
+				6904B0FC1FFDC8D2000B64F3 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				C4F7B44A1B3B5DC60033A7E4 /* PBXTargetDependency */,
+				6904B0FA1FFDC625000B64F3 /* PBXTargetDependency */,
 				C4CEAAFD1B1A4728009C8CC0 /* PBXTargetDependency */,
 			);
 			name = SimpleTunnel;
@@ -806,6 +806,11 @@
 			target = B01A16931A8A615F00BC9EFD /* SimpleTunnelServices */;
 			targetProxy = C48A18BF1B103A5800453F3E /* PBXContainerItemProxy */;
 		};
+		6904B0FA1FFDC625000B64F3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B07CCB6C1A89414500A4F1E5 /* PacketTunnel */;
+			targetProxy = 6904B0F91FFDC625000B64F3 /* PBXContainerItemProxy */;
+		};
 		C4CEAAF91B1A45A6009C8CC0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B01A16931A8A615F00BC9EFD /* SimpleTunnelServices */;
@@ -825,11 +830,6 @@
 			isa = PBXTargetDependency;
 			target = B01A16931A8A615F00BC9EFD /* SimpleTunnelServices */;
 			targetProxy = C4F0A55D1A8C026700BAB650 /* PBXContainerItemProxy */;
-		};
-		C4F7B44A1B3B5DC60033A7E4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 442B69371B06724900382B6D /* AppProxy */;
-			targetProxy = C4F7B4491B3B5DC60033A7E4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

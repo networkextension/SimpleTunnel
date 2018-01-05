@@ -109,10 +109,11 @@ class UDPServerConnection: Connection {
             let response = [UInt8](repeating: 0, count: 4096)
             let UDPSocket = Int32(source.handle)
 
-            let bytesRead = withUnsafeMutablePointer(to: &socketAddress) {ptr in
-                recvfrom(UDPSocket, UnsafeMutableRawPointer(mutating: response), response.count, 0, ptr, &socketAddressLength)
-			}
-
+            let bytesRead = withUnsafeMutablePointer(to: &socketAddress, {
+                $0.withMemoryRebound(to: sockaddr.self, capacity: 1, {
+                    recvfrom(UDPSocket, UnsafeMutableRawPointer(mutating: response), response.count, 0, $0, &socketAddressLength)
+                })
+            })
 			guard bytesRead >= 0 else {
                 if errno < 0 {
                     let errorString = String.init(cString: strerror(errno))
@@ -165,7 +166,7 @@ class UDPServerConnection: Connection {
 
 		guard let source = responseSource else { return }
         let UDPSocket = Int32(source.handle)
-		let sent: Int = -1
+		var sent: Int = -1
 
 		switch addressFamily {
 			case AF_INET:
@@ -175,8 +176,10 @@ class UDPServerConnection: Connection {
 					return
 				}
 				serverAddress.setPort(port)
-                sent = withUnsafePointer(to: &serverAddress.sin) { ptr in
-                    sendto(UDPSocket, (data as NSData).bytes, data.count, 0, ptr, socklen_t(serverAddress.sin.sin_len))
+                sent = withUnsafePointer(to: &serverAddress.sin) {
+                    $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {
+                        sendto(UDPSocket, (data as NSData).bytes, data.count, 0, $0, socklen_t(serverAddress.sin.sin_len))
+                    }
                 }
 
 
@@ -187,8 +190,10 @@ class UDPServerConnection: Connection {
 					return
 				}
 				serverAddress.setPort(port)
-                sent = withUnsafePointer(to: &serverAddress.sin6) { add in
-                    sendto(UDPSocket, (data as NSData).bytes, data.count, 0, add, socklen_t(serverAddress.sin6.sin6_len))
+                sent = withUnsafePointer(to: &serverAddress.sin6) {
+                    $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {
+                        sendto(UDPSocket, (data as NSData).bytes, data.count, 0, $0, socklen_t(serverAddress.sin6.sin6_len))
+                    }
                 }
 			default:
 				return

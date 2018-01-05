@@ -140,14 +140,14 @@ class ServerTunnel: Tunnel, TunnelDelegate, StreamDelegate {
 	func handleConnectionOpen(properties: [String: Any]) {
 		guard let connectionIdentifier = properties[TunnelMessageKey.Identifier.rawValue] ,
             let tunnelLayerNumber = properties[TunnelMessageKey.TunnelType.rawValue] ,
-            let tunnelLayer = TunnelLayer(rawValue: tunnelLayerNumber)
+            let tunnelLayer = TunnelLayer(rawValue: tunnelLayerNumber as! Int)
 			else { return }
 
 		switch tunnelLayer {
 			case .app:
 
 				guard let flowKindNumber = properties[TunnelMessageKey.AppProxyFlowType.rawValue] ,
-                    let flowKind = AppProxyFlowKind(rawValue: flowKindNumber)
+                    let flowKind = AppProxyFlowKind(rawValue: flowKindNumber as! Int)
 					else { break }
 
 				switch flowKind {
@@ -155,19 +155,19 @@ class ServerTunnel: Tunnel, TunnelDelegate, StreamDelegate {
 						guard let host = properties[TunnelMessageKey.Host.rawValue] as? String,
                             let port = properties[TunnelMessageKey.Port.rawValue] as? NSNumber
 							else { break }
-						let newConnection = ServerConnection(connectionIdentifier: connectionIdentifier, parentTunnel: self)
+                        let newConnection = ServerConnection(connectionIdentifier: connectionIdentifier as! Int, parentTunnel: self)
                         guard newConnection.open(host: host, port: port.intValue) else {
                             newConnection.closeConnection(.all)
 							break
 						}
 
 					case .udp:
-						let _ = UDPServerConnection(connectionIdentifier: connectionIdentifier, parentTunnel: self)
-                        sendOpenResultForConnection(connectionIdentifier: connectionIdentifier, resultCode: .success)
+                        let _ = UDPServerConnection(connectionIdentifier: connectionIdentifier as! Int, parentTunnel: self)
+                        sendOpenResultForConnection(connectionIdentifier: connectionIdentifier as! Int, resultCode: .success)
 				}
 
 			case .ip:
-				let newConnection = ServerTunnelConnection(connectionIdentifier: connectionIdentifier, parentTunnel: self)
+                let newConnection = ServerTunnelConnection(connectionIdentifier: connectionIdentifier as! Int, parentTunnel: self)
 				guard newConnection.open() else {
                     newConnection.closeConnection(.all)
 					break

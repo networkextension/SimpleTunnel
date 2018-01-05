@@ -17,7 +17,7 @@ protocol ClientTunnelConnectionDelegate {
 	/// Handle the connection being opened.
 	func tunnelConnectionDidOpen(_ connection: ClientTunnelConnection, configuration: [NSObject: AnyObject])
 	/// Handle the connection being closed.
-	func tunnelConnectionDidClose(_ connection: ClientTunnelConnection, error: NSError?)
+	func tunnelConnectionDidClose(_ connection: ClientTunnelConnection, error: Error?)
 }
 
 /// An object used to tunnel IP packets using the SimpleTunnel protocol.

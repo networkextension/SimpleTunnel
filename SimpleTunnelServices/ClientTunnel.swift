@@ -50,7 +50,7 @@ open class ClientTunnel: Tunnel {
 	open var connection: NWTCPConnection?
 
 	/// The last error that occurred on the tunnel.
-	open var lastError: NSError?
+	open var lastError: Error?
 
 	/// The previously-received incomplete message data.
 	var previousData: NSMutableData?
@@ -97,7 +97,7 @@ open class ClientTunnel: Tunnel {
 	}
 
 	/// Close the tunnel.
-	open func closeTunnelWithError(_ error: NSError?) {
+	open func closeTunnelWithError(_ error: Error?) {
 		lastError = error
 		closeTunnel()
 	}
@@ -106,7 +106,7 @@ open class ClientTunnel: Tunnel {
 	/// Read a SimpleTunnel packet from the tunnel connection.
 	func readNextPacket() {
 		guard let targetConnection = connection else {
-			closeTunnelWithError(SimpleTunnelError.badConnection as NSError)
+			closeTunnelWithError(SimpleTunnelError.badConnection )
 			return
 		}
 
@@ -114,7 +114,7 @@ open class ClientTunnel: Tunnel {
 		targetConnection.readMinimumLength(MemoryLayout<UInt32>.size, maximumLength: MemoryLayout<UInt32>.size) { data, error in
 			if let readError = error {
 				simpleTunnelLog("Got an error on the tunnel connection: \(readError)")
-				self.closeTunnelWithError(readError as NSError?)
+				self.closeTunnelWithError(readError)
 				return
 			}
 
@@ -151,7 +151,7 @@ open class ClientTunnel: Tunnel {
 
 				guard payloadData.count == Int(totalLength) else {
 					simpleTunnelLog("Payload data length (\(payloadData.count)) != payload length (\(totalLength)")
-					self.closeTunnelWithError(SimpleTunnelError.internalError as NSError)
+					self.closeTunnelWithError(SimpleTunnelError.internalError)
 					return
 				}
 
@@ -163,13 +163,13 @@ open class ClientTunnel: Tunnel {
 	}
 
 	/// Send a message to the tunnel server.
-	open func sendMessage(_ messageProperties: [String: Any], completionHandler: @escaping (NSError?) -> Void) {
+	open func sendMessage(_ messageProperties: [String: Any], completionHandler: @escaping (Error?) -> Void) {
 		guard let messageData = serializeMessage(messageProperties) else {
-			completionHandler(SimpleTunnelError.internalError as NSError)
+			completionHandler(SimpleTunnelError.internalError )
 			return
 		}
 
-		connection?.write(messageData, completionHandler: completionHandler as! (Error?) -> Void)
+        connection?.write(messageData, completionHandler: completionHandler )
 	}
 
 	// MARK: NSObject

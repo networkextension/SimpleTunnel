@@ -63,7 +63,7 @@ class ServerConfiguration {
 		if let value = newConfiguration[SettingsKey.IPv4.rawValue] as? [NSObject: Any] {
             var IPv4Dictionary = value
             
-            IPv4Dictionary.removeValue(forKey: SettingsKey.Pool.rawValue)
+            IPv4Dictionary.removeValue(forKey: SettingsKey.Pool.rawValue as NSObject)
             newConfiguration[SettingsKey.IPv4.rawValue] = IPv4Dictionary
 		}
 
