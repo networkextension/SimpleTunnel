@@ -153,10 +153,15 @@ class ServerTunnel: Tunnel, TunnelDelegate, StreamDelegate {
 				switch flowKind {
 					case .tcp:
 						guard let host = properties[TunnelMessageKey.Host.rawValue] as? String,
-                            let port = properties[TunnelMessageKey.Port.rawValue] as? NSNumber
+                            let port = properties[TunnelMessageKey.Port.rawValue] as? String
 							else { break }
-                        let newConnection = ServerConnection(connectionIdentifier: connectionIdentifier as! Int, parentTunnel: self)
-                        guard newConnection.open(host: host, port: port.intValue) else {
+
+                            let newConnection = ServerConnection(connectionIdentifier: connectionIdentifier as! Int, parentTunnel: self)
+                            guard newConnection.open(host: host, port: port.intValue) else {
+
+//                                let newConnection = ServerConnection(connectionIdentifier: connectionIdentifier, parentTunnel: self)
+//                            guard newConnection.open(host: host, port: Int(port)!) else {
+
                             newConnection.closeConnection(.all)
 							break
 						}
