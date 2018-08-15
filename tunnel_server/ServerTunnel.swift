@@ -45,6 +45,7 @@ class ServerTunnel: Tunnel, TunnelDelegate, StreamDelegate {
 		}
 		readStream = newReadStream
 		writeStream = newWriteStream
+        simpleTunnelLog("new connection!!!!")
 	}
 
 	// MARK: Class Methods
@@ -157,7 +158,7 @@ class ServerTunnel: Tunnel, TunnelDelegate, StreamDelegate {
 							else { break }
 
                             let newConnection = ServerConnection(connectionIdentifier: connectionIdentifier as! Int, parentTunnel: self)
-                            guard newConnection.open(host: host, port: port.intValue) else {
+                        guard newConnection.open(host: host, port: Int(port)!) else {
 
 //                                let newConnection = ServerConnection(connectionIdentifier: connectionIdentifier, parentTunnel: self)
 //                            guard newConnection.open(host: host, port: Int(port)!) else {
@@ -183,7 +184,8 @@ class ServerTunnel: Tunnel, TunnelDelegate, StreamDelegate {
 	// MARK: NSStreamDelegate
 
 	/// Handle a stream event.
-    func stream(aStream: Stream, handleEvent eventCode: Stream.Event) {
+    func stream(_ aStream: Stream, handle eventCode: Stream.Event) {
+    
 		switch aStream {
 
 			case writeStream!:
@@ -331,6 +333,7 @@ class ServerDelegate : NSObject, NetServiceDelegate {
 		simpleTunnelLog("Network service published successfully")
 	}
 
+    
 	/// Handle the "new connection" event.
     func netService(_ sender: NetService, didAcceptConnectionWith inputStream: InputStream, outputStream: OutputStream) {
 		simpleTunnelLog("Accepted a new connection")
