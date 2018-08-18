@@ -182,7 +182,7 @@ class ServerTunnel: Tunnel, TunnelDelegate, StreamDelegate {
 	}
 
 	// MARK: NSStreamDelegate
-
+    // FIXED: NSStreamDelegate swift 4 style define 
 	/// Handle a stream event.
     func stream(_ aStream: Stream, handle eventCode: Stream.Event) {
     
