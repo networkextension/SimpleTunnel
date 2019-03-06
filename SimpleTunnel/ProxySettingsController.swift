@@ -60,7 +60,7 @@ class ProxySettingsController: ConfigurationParametersViewController {
 			excludeSimpleCell,
 			exceptionsCell,
 			matchDomainsCell
-		].flatMap { $0 }
+		].compactMap { $0 }
 
 		pacSwitchCell.dependentCells = [ pacURLCell, pacScriptCell ]
 		pacSwitchCell.getIndexPath = {

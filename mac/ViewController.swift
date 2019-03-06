@@ -19,7 +19,7 @@ class ViewController: NSViewController {
         // Do any additional setup after loading the view.
     }
     @IBAction func save(_ sender: Any) {
-        guard let m = self.manager else {
+        guard self.manager != nil else {
             fatalError()
         }
         
@@ -27,7 +27,7 @@ class ViewController: NSViewController {
     
     func loadManager(){
         NETunnelProviderManager.loadAllFromPreferences { (ms, e) in
-            print(ms)
+            print(ms as Any)
             if let ms = ms{
                 if ms.count != 0 {
                     for m in ms {
@@ -61,7 +61,7 @@ class ViewController: NSViewController {
         
         manager.saveToPreferences(completionHandler: { (error) -> Void in
             if error != nil {
-                print(error?.localizedDescription)
+                print(error?.localizedDescription as Any)
             }else {
                 self.manager = manager
             }
@@ -114,7 +114,7 @@ class ViewController: NSViewController {
                     try session.sendProviderMessage(message) { response in
                         if let response = response  {
                             if let responseString = String.init(data:response , encoding: .utf8){
-                                let list = responseString.components(separatedBy: ":")
+                                _ = responseString.components(separatedBy: ":")
                                 
                                 print("Received response from the provider: \(responseString)")
                             }

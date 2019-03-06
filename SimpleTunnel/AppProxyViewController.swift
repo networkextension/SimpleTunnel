@@ -8,6 +8,7 @@
 
 import UIKit
 import NetworkExtension
+import WebKit
 extension NEVPNStatus{
     func descript() ->String{
         switch self{
@@ -38,15 +39,20 @@ extension NEVPNStatus{
             
             
             
+        @unknown default:
+            fatalError()
         }
     }
 }
 class AppProxyViewController: UIViewController {
     var proxyManager:NEAppProxyProviderManager?// = NEAppProxyProviderManager()
     @IBOutlet weak var lable:UILabel!
+    @IBOutlet weak var wk:WKWebView!
     override func viewDidLoad() {
         super.viewDidLoad()
         startLoading()
+        let req = URLRequest.init(url: URL.init(string: "https://www.apple.com")!)
+        self.wk.load(req)
          //initProviderManager()
         // Do any additional setup after loading the view.
     }

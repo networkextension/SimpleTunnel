@@ -41,7 +41,7 @@ class ServerTunnel: Tunnel, TunnelDelegate, StreamDelegate {
 		for stream in [newReadStream, newWriteStream] {
 			stream.delegate = self
 			stream.open()
-            stream.schedule(in: RunLoop.main, forMode: RunLoopMode.defaultRunLoopMode)
+            stream.schedule(in: RunLoop.main, forMode: RunLoop.Mode.default)
 		}
 		readStream = newReadStream
 		writeStream = newWriteStream
@@ -58,7 +58,7 @@ class ServerTunnel: Tunnel, TunnelDelegate, StreamDelegate {
 
 		service.delegate = ServerTunnel.serviceDelegate
         service.publish(options: NetService.Options.listenForConnections)
-        service.schedule(in: .main, forMode: RunLoopMode.defaultRunLoopMode)
+        service.schedule(in: .main, forMode: RunLoop.Mode.default)
 
 		return service
 	}
@@ -253,7 +253,7 @@ class ServerTunnel: Tunnel, TunnelDelegate, StreamDelegate {
 
             let socketData = CFReadStreamCopyProperty(stream, CFStreamPropertyKey.socketNativeHandle) as? NSData
 
-            stream.remove(from: RunLoop.main, forMode: RunLoopMode.defaultRunLoopMode)
+            stream.remove(from: RunLoop.main, forMode: RunLoop.Mode.default)
             stream.close()
             stream.delegate = nil
             readStream = nil
@@ -270,7 +270,7 @@ class ServerTunnel: Tunnel, TunnelDelegate, StreamDelegate {
                 simpleTunnelLog("Tunnel write stream error: \(error)")
             }
 
-            stream.remove(from: RunLoop.main, forMode:RunLoopMode.defaultRunLoopMode)
+            stream.remove(from: RunLoop.main, forMode:RunLoop.Mode.default)
             stream.close()
             stream.delegate = nil
         }

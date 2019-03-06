@@ -53,7 +53,7 @@ class ConfigurationParametersViewController: UITableViewController {
 
 	/// Return the index of a given cell in the cells list.
 	func getIndexPathOfCell(_ cell: UITableViewCell) -> IndexPath? {
-		if let row = cells.index(where: { $0 == cell }) {
+		if let row = cells.firstIndex(where: { $0 == cell }) {
 			return IndexPath(row: row, section: 0)
 		}
 		return nil

@@ -34,7 +34,7 @@ class StringListController: ListViewController {
 	}
 
 	/// Returns UITableViewCellSelectionStyle.None
-	override var listCellSelectionStyle: UITableViewCellSelectionStyle {
+	override var listCellSelectionStyle: UITableViewCell.SelectionStyle {
 		return .none
 	}
 

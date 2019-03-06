@@ -34,7 +34,7 @@ class ServerConnection: Connection, StreamDelegate {
 		for stream in [newReadStream, newWriteStream] {
 			stream.delegate = self
 			stream.open()
-            stream.schedule(in: RunLoop.main, forMode: RunLoopMode.defaultRunLoopMode)
+            stream.schedule(in: RunLoop.main, forMode: RunLoop.Mode.default)
 		}
 
 		return true
@@ -51,7 +51,7 @@ class ServerConnection: Connection, StreamDelegate {
 				simpleTunnelLog("Connection \(identifier) write stream error: \(error)")
 			}
 
-            stream.remove(from: RunLoop.main, forMode: RunLoopMode.defaultRunLoopMode)
+            stream.remove(from: RunLoop.main, forMode: RunLoop.Mode.default)
 			stream.close()
 			stream.delegate = nil
 			writeStream = nil
@@ -62,7 +62,7 @@ class ServerConnection: Connection, StreamDelegate {
 				simpleTunnelLog("Connection \(identifier) read stream error: \(error)")
 			}
 
-            stream.remove(from: RunLoop.main, forMode: RunLoopMode.defaultRunLoopMode)
+            stream.remove(from: RunLoop.main, forMode: RunLoop.Mode.default)
 			stream.close()
 			stream.delegate = nil
 			readStream = nil
@@ -78,7 +78,7 @@ class ServerConnection: Connection, StreamDelegate {
 	/// Stop reading from the connection.
 	override func suspend() {
 		if let stream = readStream {
-			stream.remove(from: RunLoop.main, forMode: RunLoopMode.defaultRunLoopMode)
+			stream.remove(from: RunLoop.main, forMode: RunLoop.Mode.default)
 		}
 	}
 
@@ -86,7 +86,7 @@ class ServerConnection: Connection, StreamDelegate {
 	override func resume() {
 		if let stream = readStream {
 			
-            stream.schedule(in: RunLoop.main, forMode: RunLoopMode.defaultRunLoopMode)
+            stream.schedule(in: RunLoop.main, forMode: RunLoop.Mode.default)
 		}
 	}
 
@@ -101,7 +101,7 @@ class ServerConnection: Connection, StreamDelegate {
             if written < data.count {
 				// We could not write all of the data to the connection. Tell the client to stop reading data for this connection.
 				
-				stream.remove(from: RunLoop.main, forMode: RunLoopMode.defaultRunLoopMode)
+				stream.remove(from: RunLoop.main, forMode: RunLoop.Mode.default)
                 tunnel?.sendSuspendForConnection(identifier)
 			}
 		}
@@ -129,7 +129,7 @@ class ServerConnection: Connection, StreamDelegate {
 
 							if savedData.isEmpty {
 								
-                                writeStream?.remove(from: RunLoop.main, forMode: RunLoopMode.defaultRunLoopMode)
+                                writeStream?.remove(from: RunLoop.main, forMode: RunLoop.Mode.default)
 								if isClosedForWrite {
 									closeConnection(.write)
 								}
@@ -139,7 +139,7 @@ class ServerConnection: Connection, StreamDelegate {
 							}
 						}
 						else {
-							writeStream?.remove(from: RunLoop.main, forMode: RunLoopMode.defaultRunLoopMode)
+							writeStream?.remove(from: RunLoop.main, forMode: RunLoop.Mode.default)
 						}
 
 					case [.endEncountered]:

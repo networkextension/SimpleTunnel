@@ -19,7 +19,9 @@ extension NEOnDemandRuleAction: CustomStringConvertible {
 			case .disconnect: return "Disconnect"
 			case .ignore: return "Maintain"
 			case .evaluateConnection: return "Evaluate Connection"
-		}
+        @unknown default:
+            fatalError()
+        }
 	}
 }
 
@@ -82,7 +84,7 @@ class OnDemandRuleAddEditController: ConfigurationParametersViewController {
 			interfaceTypeCell,
 			SSIDsCell,
 			URLProbeCell
-		].flatMap { $0 }
+		].compactMap { $0 }
 
 		URLProbeCell.valueChanged = {
 			if let enteredText = self.URLProbeCell.textField.text {
@@ -140,7 +142,7 @@ class OnDemandRuleAddEditController: ConfigurationParametersViewController {
 
 				let enumValues: [NEOnDemandRuleInterfaceType] = [ .any, .wiFi, .cellular ],
 					stringValues = enumValues.map { $0.description },
-					currentSelection = enumValues.index { $0 == targetRule.interfaceTypeMatch }
+					currentSelection = enumValues.firstIndex { $0 == targetRule.interfaceTypeMatch }
 
            
                 enumController.setValues(stringValues, title: "Interface Type", currentSelection: currentSelection) { newRow in
@@ -169,7 +171,7 @@ class OnDemandRuleAddEditController: ConfigurationParametersViewController {
 
 				let enumValues: [NEOnDemandRuleAction] = [ .evaluateConnection, .disconnect, .connect, .ignore ],
 					stringValues = enumValues.map { $0.description },
-					currentSelection = enumValues.index { $0 == targetRule.action }
+					currentSelection = enumValues.firstIndex { $0 == targetRule.action }
 
             
                 enumController.setValues(stringValues, title: "Action", currentSelection: currentSelection) { newRow in
@@ -222,7 +224,9 @@ class OnDemandRuleAddEditController: ConfigurationParametersViewController {
 
 			case .ignore:
 				newRule = NEOnDemandRuleIgnore()
-		}
+        @unknown default:
+            fatalError()
+        }
 
 		newRule.dnsSearchDomainMatch = targetRule.dnsSearchDomainMatch
 		newRule.dnsServerAddressMatch = targetRule.dnsServerAddressMatch

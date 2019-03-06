@@ -28,12 +28,12 @@ class OnDemandRuleListController: ListViewController {
 	}
 
 	/// Returns UITableViewCellAccessoryType.DetailButton
-	override var listAccessoryType: UITableViewCellAccessoryType {
+	override var listAccessoryType: UITableViewCell.AccessoryType {
 		return .detailButton
 	}
 
 	/// Returns UITableViewCellAccessoryType.DetailButton
-	override var listEditingAccessoryType: UITableViewCellAccessoryType {
+	override var listEditingAccessoryType: UITableViewCell.AccessoryType {
 		return .detailButton
 	}
 

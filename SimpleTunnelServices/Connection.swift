@@ -42,7 +42,7 @@ open class Connection: NSObject {
 	// MARK: Properties
 
 	/// The connection identifier.
-	open let identifier: Int
+    public let identifier: Int
 
 	/// The tunnel that contains the connection.
 	open var tunnel: Tunnel?

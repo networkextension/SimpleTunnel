@@ -123,7 +123,7 @@ open class Tunnel: NSObject {
 		
 		savedData.clear()
 
-		if let index = Tunnel.allTunnels.index(where: { return $0 === self }) {
+		if let index = Tunnel.allTunnels.firstIndex(where: { return $0 === self }) {
 			Tunnel.allTunnels.remove(at: index)
 		}
 	}

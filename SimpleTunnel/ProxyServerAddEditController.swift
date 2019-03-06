@@ -45,7 +45,7 @@ class ProxyServerAddEditController: ConfigurationParametersViewController {
 			addressCell,
 			portCell,
 			authenticationSwitchCell
-		].flatMap { $0 }
+		].compactMap { $0 }
 
 		authenticationSwitchCell.dependentCells = [ usernameCell, passwordCell ]
 		authenticationSwitchCell.getIndexPath = {

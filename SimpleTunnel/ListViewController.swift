@@ -26,17 +26,17 @@ class ListViewController: UITableViewController {
 	var listCount: Int { return 0 }
 
 	/// The type of table view cell accessory image to display for each item in the list.
-	var listAccessoryType: UITableViewCellAccessoryType {
+	var listAccessoryType: UITableViewCell.AccessoryType {
 		return .none
 	}
 
 	/// The type of table view cell accessory image to display for each item in the list while the list is being edited.
-	var listEditingAccessoryType: UITableViewCellAccessoryType {
+	var listEditingAccessoryType: UITableViewCell.AccessoryType {
 		return .none
 	}
 
 	/// The type of selection feedback to display items in the list.
-	var listCellSelectionStyle: UITableViewCellSelectionStyle {
+	var listCellSelectionStyle: UITableViewCell.SelectionStyle {
 		return .default
 	}
 
@@ -151,7 +151,7 @@ class ListViewController: UITableViewController {
 	}
 
 	/// Make changes to the list per the given editing style and target row.
-	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 		switch editingStyle {
 		case .delete:
 			listRemoveItemAtIndex((indexPath as NSIndexPath).row)
@@ -164,7 +164,7 @@ class ListViewController: UITableViewController {
 	// MARK: UITableViewDelegate
 
 	/// Return the editing style for a row in the table. Returns "Delete" editing style for all items except for the last item, which uses the "Insert" style.
-	override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+	override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
 		if (indexPath as NSIndexPath).item < listCount {
 			return .delete
 		}

@@ -62,7 +62,7 @@ class AddEditConfiguration: ConfigurationParametersViewController {
 			onDemandCell,
 			proxiesCell,
 			disconnectOnSleepCell
-		].flatMap { $0 }
+		].compactMap { $0 }
 
 		// The switch in proxiesCell controls the display of proxySettingsCell
 		proxiesCell.dependentCells = [ proxySettingsCell ]

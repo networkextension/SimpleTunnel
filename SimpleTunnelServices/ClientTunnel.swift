@@ -19,23 +19,25 @@ extension NWTCPConnectionState: CustomStringConvertible {
 			case .disconnected: return "Disconnected"
 			case .invalid: return "Invalid"
 			case .waiting: return "Waiting"
-		}
+        @unknown default:
+            fatalError()
+        }
 	}
 }
 public extension String {
-    public func to(index:Int) ->String{
+    func to(index:Int) ->String{
         return String(self[..<self.index(self.startIndex, offsetBy:index)])
         
     }
-    public func to(index:String.Index) ->String{
+    func to(index:String.Index) ->String{
         return String(self[..<index])
         
     }
-    public func from(index:Int) ->String{
+    func from(index:Int) ->String{
         return String(self[self.index(self.startIndex, offsetBy:index)...])
         
     }
-    public func from(index:String.Index) ->String{
+    func from(index:String.Index) ->String{
         return String(self[index...])
         
     }
@@ -78,7 +80,7 @@ open class ClientTunnel: Tunnel {
 			guard !hostname.isEmpty && !portString.isEmpty else {
 				return .badConfiguration
 			}
-
+            simpleTunnelLog("Got on the tunnel server address: \(hostname):\(portString)")
             endpoint = NWHostEndpoint(hostname:String(hostname), port:String(portString))
 		}
 		else {
