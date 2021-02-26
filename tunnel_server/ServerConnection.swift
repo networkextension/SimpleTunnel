@@ -114,7 +114,7 @@ class ServerConnection: Connection, StreamDelegate {
 	// MARK: NSStreamDelegate
 
 	/// Handle an event on a stream.
-	func stream(aStream:Stream, handleEvent eventCode: Stream.Event) {
+	func stream(_ aStream: Stream, handle eventCode: Stream.Event) {
 		switch aStream {
 
 			case writeStream!:
