@@ -42,6 +42,24 @@ You can request this entitlement by sending an email to networkextension@apple.c
 
 The SimpleTunnel iOS products require iOS 9.0 or newer.
 The SimpleTunnel OS X products require OS X 11.0 or newer.
+### tunnelserver nat 
+
+add 
+```
+nat-anchor "simpleTunnel" 
+load anchor "simpleTunnel" from "/etc/pf.anchors/simpleTunnel"
+```
+to /etc/pf.conf
+
+edit /etc/pf.anchors/simpleTunnel add 
+nat on en0 from 10.10.0.0/16 to any -> en0 
+
+last step 
+```
+sudo sysctl net.inet.ip.forwarding=1  
+sudo sysctl net.inet.ip.fw.enable=1  
+sudo pfctl -evf /etc/pf.conf  
+```
 
 ### Build
 
